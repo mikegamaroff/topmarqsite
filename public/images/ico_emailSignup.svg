@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="19px" viewBox="0 0 25 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>envelpe</title>
+    <g id="Web-Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Login" transform="translate(-960.000000, -631.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="Group-4" transform="translate(819.000000, 131.000000)">
+                <g id="Group-12-Copy" transform="translate(61.000000, 487.000000)">
+                    <g id="envelpe" transform="translate(81.000000, 14.000000)">
+                        <polygon id="path1408" stroke-linejoin="round" points="23 17 23 0 0 0 0 17"></polygon>
+                        <line x1="1" y1="16" x2="9" y2="9" id="path1414" stroke-linejoin="round"></line>
+                        <line x1="22" y1="17" x2="14" y2="9" id="path1416" stroke-linejoin="round"></line>
+                        <path d="M0,0 L10.0839465,10.4261378 C10.8313779,11.1946715 12.1913263,11.1855679 12.9229729,10.4331419 L23,0.0839135872" id="path1412"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,13 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+html,
 body {
+  font-family: "Quicksand", sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.pageHolder,
+.heroHolder,
+.heroPage,
+.heroContentHeader,
+.heroContent,
+.card {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.pageHolder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/carbg.png");
+  background-repeat: repeat;
+}
+/* .heroPage {
+  padding: 0px 0px;
+  background-color: rgb(253, 51, 0);
+
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-image: url("/images/1280.jpg");
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: auto 100%;
+  background-attachment: fixed;
+
+
+}
+ */
+.heroHolder {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  position: relative;
+  height: 100%;
+
+  position: relative;
+}
+.heroPage {
+  background: url("/images/1280.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: inherit;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.56);
+  /*  background: url("/images/1280.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+
+  width: 100%;
+  height: 100%;
+}
+.heroContent {
+  padding: 10%;
+  width: 100%;
+}
+.heroContentHeader {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  text-align: center;
+
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.heroContentHeader h1 {
+  font-size: 22px;
+
+  letter-spacing: 0;
+
+  line-height: 1.5;
+}
+
+.heroContentHeader h2 {
+  font-size: 15px;
+  font-weight: 500;
+
+  letter-spacing: 0;
+
+  line-height: 1.5;
+}
+.heroContentHeader img {
+  width: 100%;
+}
+.heroContentList ul {
+  list-style-position: outside;
+  margin-top: 40px;
+}
+.heroContentList li {
+  position: relative;
+  list-style-type: none;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  padding: 0px 0px 20px 0px;
+  vertical-align: middle;
+  font-weight: 400;
+}
+.heroContentList li:before {
+  position: absolute;
+  background: url("/images/bullet1.svg") no-repeat center center transparent;
+  content: "";
+  background-size: 20px 20px;
+  padding: 15px;
+  position: absolute;
+
+  left: -35px;
+  font-size: 33px;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 13px;
+  padding: 20px;
+  width: 100%;
+}
+.loginHolder {
+  display: flex;
+  padding: 5%;
+  justify-content: center;
+  margin: auto;
+}
+.loginContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginContent img {
+  margin: 20px 0 20px 0;
+  width: 90%;
 }
