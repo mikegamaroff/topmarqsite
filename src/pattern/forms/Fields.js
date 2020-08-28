@@ -159,6 +159,7 @@ export const Button = (props) => {
           width: props.fullwidth ? "100%" : "auto",
         }}
       >
+        {props.icon && <span id="buttonIcon">{props.icon}</span>}
         {props.submitting ? props.submitting : props.label}
       </button>
     </div>

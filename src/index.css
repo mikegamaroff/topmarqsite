@@ -164,13 +164,19 @@ textarea {
 }
 #textLink {
   font-size: 13px;
-  text-decoration: underline;
+  text-decoration: none;
+
   color: darkgray;
+  cursor: pointer;
+}
+#textLink:hover {
+  text-decoration: underline;
+  color: #004196;
 }
 .orDivider {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px 0 10px 0;
 }
 .orDivider img {
   width: 100%;

@@ -59,7 +59,8 @@ button {
   border-radius: 13px;
   border: none;
   outline: none;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: 600;
   font-family: inherit;
   padding: 10px 25px 10px 25px;
   -webkit-transition: 0.1s ease-in-out;
@@ -70,4 +71,12 @@ button {
 }
 button:hover {
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.2);
+}
+/* button::before {
+  font-family: "Quicksand", sans-serif;
+  content: "\f099";
+  margin-right: 10px;
+} */
+#buttonIcon {
+  margin-right: 10px;
 }
