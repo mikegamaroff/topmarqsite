@@ -172,16 +172,7 @@ class Home extends Component {
                           gap="10px"
                         />
                       </div>
-                      <div>
-                        <span
-                          id="textLink"
-                          onClick={() =>
-                            this.setState({ signup: !this.state.signup })
-                          }
-                        >
-                          Sign up
-                        </span>
-                      </div>
+
                       <div className="orDivider">
                         <span>
                           <img src="/images/divider_or.svg" />
@@ -194,7 +185,9 @@ class Home extends Component {
                           fullwidth={true}
                           color="white"
                           disabled={false}
-                          onClick={this.handleSubmit}
+                          onClick={() =>
+                            this.setState({ signup: !this.state.signup })
+                          }
                           gradient={["#004196", "#004196"]}
                           gap="10px"
                           icon={<FontAwesomeIcon icon={faEnvelopeSquare} />}

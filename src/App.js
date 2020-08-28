@@ -2,25 +2,24 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 const myHistory = createBrowserHistory();
 export class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Router history={myHistory}>
-          <div>
-            <div>
-              {/*  {this.state.synced ? <NavBar synced={this.state.synced} /> : null} */}
-            </div>
-
+      <div>
+        <div className="App">
+          <Router history={myHistory}>
             <div>
               <Switch>
                 <Route exact path="/" render={() => <Home />} />
               </Switch>
-              <div className="nav"></div>
             </div>
-          </div>
-        </Router>
+          </Router>
+        </div>
+        <div>
+          <Footer />
+        </div>
       </div>
     );
   }
