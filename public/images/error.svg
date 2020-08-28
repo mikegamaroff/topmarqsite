@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>error</title>
+    <defs>
+        <path d="M14.8637984,0.00294221303 C15.0759882,0.000980737678 15.2880554,0 15.5,0 C15.7119759,0 15.9240744,0.000981026623 16.1362955,0.00294307987 L16.1362955,0.00294018963 C24.3104435,0.0785128399 30.9190324,6.68521179 30.9969432,14.8593378 C30.9989811,15.0731466 31,15.2867007 31,15.5 C31,15.7133281 30.9989808,15.926911 30.9969423,16.1407487 L30.9969444,16.1407487 C30.9190082,24.316453 24.3079667,30.9237988 16.13222,30.9971634 C15.92148,30.9990545 15.71074,31 15.5,31 C15.2892935,31 15.0785871,30.9990548 14.8678806,30.9971643 L14.8678806,30.9971671 C6.69386529,30.9238297 0.0835347651,24.3191738 0.00317742806,16.1452245 C0.00105914269,15.9297525 0,15.7146777 0,15.5 C0,15.2853507 0.00105886261,15.0703044 0.00317658784,14.854861 L0.00317987358,14.854861 C0.0835110773,6.68249405 6.69138579,0.0784877259 14.8637984,0.00294221303 Z" id="path-1"></path>
+        <linearGradient x1="66.0759824%" y1="100%" x2="6.0211934%" y2="3.36719424%" id="linearGradient-3">
+            <stop stop-color="#AD2F2F" offset="0%"></stop>
+            <stop stop-color="#E68686" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Web-Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Signup" transform="translate(-1185.000000, -368.000000)">
+            <g id="Group-4" transform="translate(819.000000, 135.000000)">
+                <g id="error" transform="translate(366.000000, 233.000000)">
+                    <rect id="bounds-copy" fill="#50A1FF" opacity="0" x="0" y="0" width="31" height="31"></rect>
+                    <g id="action/icon-round-button">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="mask"></g>
+                        <g id="Color/🎨white" mask="url(#mask-2)" fill="url(#linearGradient-3)">
+                            <rect id="bg" x="0" y="0" width="31" height="31"></rect>
+                        </g>
+                        <g id="🖼-Icon/XS-placeholder" mask="url(#mask-2)">
+                            <g transform="translate(8.000000, 8.000000)">
+                                <rect id="bounds" fill-opacity="0.338428442" fill="#1C8FF8" opacity="0" x="0.8" y="0.5" width="15" height="15"></rect>
+                                <g id="check" stroke-width="1" fill="none" transform="translate(2.800000, 3.500000)" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="10" y1="0.0625" x2="0" y2="9" id="Shape" stroke="#FFFFFF" stroke-width="2"></line>
+                                    <line x1="10" y1="0.04625" x2="0" y2="8.98375" id="Shape-Copy" stroke="#FFFFFF" stroke-width="2" transform="translate(5.000000, 4.515000) scale(-1, 1) translate(-5.000000, -4.515000) "></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-
+import { Input, Button } from "../pattern/forms/Fields";
+import "../pattern/pattern.css";
 class Home extends Component {
   render() {
+    console.log(this.props);
     return (
       <div>
         <div className="pageHolder">
@@ -44,14 +46,74 @@ class Home extends Component {
             <div className="loginHolder">
               <div className="card">
                 <div className="loginContent">
-                  <img src="/images/logo_blueTitle.svg" />
-                  <div>1</div>
-                  <div>2</div>
-                  <div>3</div>
-                  <div>4</div>
-                  <div>5</div>
-                  <div>6</div>
-                  <div>7</div>
+                  <div className="loginLogo">
+                    <img src="/images/logo_blueTitle.svg" />
+                  </div>
+                  <div style={{ width: "100%" }}>
+                    <Input
+                      placeholder="Email"
+                      name="email"
+                      type="email"
+                      color="#545860"
+                      width="100%"
+                      error={false}
+                      validated={false}
+                      onChange={this.handleChange}
+                      autoComplete="off"
+                      gap="10px"
+                    />
+                  </div>
+                  <div style={{ width: "100%" }}>
+                    <Input
+                      placeholder="User Name"
+                      name="username"
+                      type="text"
+                      color="#545860"
+                      width="100%"
+                      error={false}
+                      validated={false}
+                      onChange={this.handleChange}
+                      autoComplete="off"
+                      gap="10px"
+                    />
+                  </div>
+                  <div style={{ width: "100%" }}>
+                    <Input
+                      placeholder="Password"
+                      name="password"
+                      type="password"
+                      color="#545860"
+                      width="100%"
+                      error={false}
+                      validated={false}
+                      onChange={this.handleChange}
+                      autoComplete="off"
+                      gap="10px"
+                    />
+                  </div>
+                  <div style={{ width: "100%" }}>
+                    <Button
+                      label="Submit"
+                      submitting={false}
+                      fullwidth={true}
+                      color="white"
+                      disabled={false}
+                      onClick={this.handleSubmit}
+                      gradient={["#EBAE58", "#EBAE58"]}
+                      gap="10px"
+                    />
+                  </div>
+                  <div>
+                    <span id="textLink">Login</span>
+                  </div>
+                  <div className="orDivider">
+                    <span>
+                      <img src="/images/divider_or.svg" />
+                    </span>
+                  </div>
+                  <div className="googleLogin" style={{ width: "100%" }}>
+                    <img src="/images/button_google.svg" />
+                  </div>
                 </div>
               </div>
             </div>

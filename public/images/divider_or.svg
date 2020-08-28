@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="248px" height="20px" viewBox="0 0 248 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 3</title>
+    <g id="Web-Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Signup" transform="translate(-928.000000, -629.000000)">
+            <g id="Group-4" transform="translate(819.000000, 135.000000)">
+                <g id="Group-3" transform="translate(110.000000, 494.000000)">
+                    <text id="OR" font-family="AvenirNext-Medium, Avenir Next" font-size="20" font-weight="400" line-spacing="20" letter-spacing="2.222222" fill="#A5A5A5">
+                        <tspan x="106" y="20">OR</tspan>
+                    </text>
+                    <line x1="75.5" y1="9" x2="0.973159194" y2="9" id="Line" stroke="#838692" stroke-width="2" opacity="0.300000012" stroke-linecap="square"></line>
+                    <line x1="245.5" y1="9" x2="170.973159" y2="9" id="Line-Copy" stroke="#838692" stroke-width="2" opacity="0.300000012" stroke-linecap="square"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
