@@ -5,6 +5,10 @@
   -ms-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
 }
+.TextButton:hover {
+  color: #e2ac61;
+  cursor: pointer;
+}
 .cursor {
   cursor: pointer;
 }
@@ -28,12 +32,14 @@
   position: absolute;
   right: -30px;
   top: 0;
+
+  height: 100%;
 }
 .submitButton:hover {
   opacity: 0.5;
 }
 .submitButton img {
-  height: 1px;
+  height: 100%;
   width: 22px;
 }
 .xIcon {

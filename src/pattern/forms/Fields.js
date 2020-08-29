@@ -7,10 +7,12 @@ export const Input = (props) => {
     <div
       className="fieldHolder"
       style={{
-        width: props.submitButton ? `calc(${props.width} - 30px)` : props.width,
+        width: props.submitButton ? `calc(${props.width} - 35px)` : props.width,
         height: props.height,
         marginTop: props.gap,
         marginBottom: props.gap,
+        margin: "0px",
+        height: "100%",
       }}
     >
       <div className="errorIcon">
@@ -30,6 +32,7 @@ export const Input = (props) => {
           borderColor: `${props.error && "rgba(255, 4, 4, 0.5)"}`,
         }}
       />
+
       {props.submitButton ? (
         <div className="submitButton cursor" onClick={props.submitButton}>
           <img src={props.submitImg} />
@@ -127,66 +130,3 @@ export const Textarea = (props) => {
   );
 };
  */
-export const Button = (props) => {
-  return (
-    <div
-      className="buttonHolder"
-      style={{
-        position: "relative",
-
-        marginTop: props.gap,
-        marginBottom: props.gap,
-      }}
-    >
-      <button
-        disabled={props.disabled || props.submitting}
-        onClick={props.onClick}
-        // className="testInput"
-
-        style={{
-          cursor: props.disabled || props.submitting ? "" : "pointer",
-          background: props.error ? "#FFF0F0" : "#ecedf1",
-          borderColor: props.error && "rgba(255, 4, 4, 0.5)",
-          background: props.bgImage
-            ? `url("${props.bgImage}") no-repeat center center transparent`
-            : `linear-gradient(
-            180deg,
-            ${
-              props.disabled || props.submitting || !props.gradient
-                ? "#666666"
-                : props.gradient[0]
-            } 0%,
-            ${
-              props.disabled || props.submitting || !props.gradient
-                ? "#CCCCCC"
-                : props.gradient[1]
-            } 100%
-          )`,
-          color: props.disabled || props.submitting ? "#555555" : props.color,
-          width: props.fullwidth ? "100%" : "auto",
-        }}
-      >
-        {props.icon && <span id="buttonIcon">{props.icon}</span>}
-        {props.submitting ? props.submitting : props.label}
-      </button>
-    </div>
-  );
-};
-
-export const TextButton = (props) => {
-  return (
-    <div
-      style={{
-        fontSize: "14px",
-        fontWeight: 900,
-        marginBottom: "15px",
-        display: "inline-block",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        {props.label}
-        <span style={{ marginLeft: "7px" }}>{props.icon}</span>
-      </div>
-    </div>
-  );
-};

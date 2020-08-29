@@ -2,12 +2,44 @@ import React, { Component } from "react";
 import { PlusCircle } from "../svg/svgIcons";
 import Nav from "../components/Nav";
 import { EventCard } from "../pattern/cards/EventCard";
-import { TextButton } from "../pattern/forms/Fields";
+import { PopularThreads } from "../pattern/Sections";
+import { AddThread } from "../pattern/Elements";
+import { TextButton } from "../pattern/forms/Button";
 
+const popularThreadList = [
+  {
+    description: "Best Garage Setup",
+    image: "/images/all_cars4.jpeg",
+    profileThumbnail: "images/profPic.png",
+    userID: 20,
+  },
+  {
+    description: "Random",
+    image: "/images/all_cars5.jpeg",
+    profileThumbnail: "images/profPic.png",
+    userID: 20,
+  },
+  {
+    description: "Best Jeep mods",
+    image: "/images/all_cars6.jpeg",
+    profileThumbnail: "images/profPic.png",
+    userID: 20,
+  },
+];
 class Home extends Component {
   state = {
     signup: true,
   };
+  sendSearch = () => {
+    alert("searched");
+  };
+  handleChange = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -52,7 +84,15 @@ class Home extends Component {
                 gap={25}
               />
             </div>
-            <div className="column-maincontent">Middle</div>
+            <div className="column-maincontent">
+              <PopularThreads popularThreadList={popularThreadList} />
+              <AddThread
+                action={this.sendSearch}
+                handleChange={this.handleChange}
+                profileThumbnail="images/profPic.png"
+                userID={20}
+              />
+            </div>
             <div className="margin-right">Right column</div>
           </div>
         </div>

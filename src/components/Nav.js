@@ -45,7 +45,7 @@ class Footer extends Component {
               </div>
               <div style={{ padding: "0px 20px 0px 10px", width: "100%" }}>
                 <Input
-                  placeholder="User Name"
+                  placeholder="Search"
                   name="username"
                   type="text"
                   color="#545860"

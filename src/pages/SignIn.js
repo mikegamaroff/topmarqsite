@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Input, Button } from "../pattern/forms/Fields";
+import { Input } from "../pattern/forms/Fields";
+import { Button } from "../pattern/forms/Button";
 import Footer from "../components/Footer";
 
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
