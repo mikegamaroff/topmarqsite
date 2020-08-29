@@ -7,7 +7,8 @@ export const Input = (props) => {
     <div
       className="fieldHolder"
       style={{
-        width: props.width,
+        width: props.submitButton ? `calc(${props.width} - 30px)` : props.width,
+        height: props.height,
         marginTop: props.gap,
         marginBottom: props.gap,
       }}
@@ -15,6 +16,7 @@ export const Input = (props) => {
       <div className="errorIcon">
         {props.error ? xError : null}
         {!props.error && props.validated ? xValidated : null}
+        {props.icon ? <div className="xIcon">{props.icon}</div> : null}
       </div>
       <input
         placeholder={props.placeholder}
@@ -28,6 +30,11 @@ export const Input = (props) => {
           borderColor: `${props.error && "rgba(255, 4, 4, 0.5)"}`,
         }}
       />
+      {props.submitButton ? (
+        <div className="submitButton cursor" onClick={props.submitButton}>
+          <img src={props.submitImg} />
+        </div>
+      ) : null}
     </div>
   );
 };

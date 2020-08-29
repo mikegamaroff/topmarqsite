@@ -19,6 +19,9 @@ textarea {
 .footerContainer,
 input,
 select,
+.navContainer,
+.profileMenu,
+#column-three,
 textarea {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -32,34 +35,53 @@ textarea {
   -ms-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
 }
-.pageHolder {
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+.align-right {
+  display: flex;
+  justify-self: flex-end;
+}
+.pageHolder,
+.pageHolderInside {
   position: absolute;
   width: 100%;
   height: 100%;
   background-image: url("/images/carbg.png");
   background-repeat: repeat;
+}
+.pageHolder {
   padding-bottom: 60px;
 }
-
-/* .heroPage {
-  padding: 0px 0px;
-  background-color: rgb(253, 51, 0);
-
-  margin: 0;
-  font-family: "Quicksand", sans-serif;
-  background-image: url("/images/1280.jpg");
-  background-repeat: no-repeat;
-  position: absolute;
-  background-size: auto 100%;
-  background-attachment: fixed;
-
-
+.pageHolderInside {
+  margin-top: 50px;
 }
- */
+#column-three {
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.margin-right,
+.margin-left {
+  background-color: #ffffff;
+  height: 100%;
+  padding: 20px;
+}
+.margin-right {
+  box-shadow: -1px 0px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.margin-left {
+  box-shadow: 1px 0px 4px 0 rgba(0, 0, 0, 0.1);
+}
+.column-maincontent {
+  padding: 20px;
+}
 .heroHolder {
   display: grid;
   grid-template-columns: 40% 60%;
-
   height: 100%;
 }
 .heroPage {
@@ -199,23 +221,36 @@ textarea {
 .googleLogin:hover {
   opacity: 0.8;
 }
-.footerContainer {
+.footerContainer,
+.navContainer {
   position: fixed;
-  display: flex;
-  justify-content: space-between;
+
   align-items: center;
   z-index: 6;
-  background-color: #f7f7f7;
-  bottom: 0;
+
   width: 100%;
-  height: 60px;
-  box-shadow: 0px -1px 3px 1px rgba(0, 0, 0, 0.1);
   color: #949494;
   font-size: 13px;
-  padding: 20px;
 }
-.footerContainer #logo img {
-  height: 25px;
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  height: 60px;
+  bottom: 0;
+  box-shadow: 0px -1px 3px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+.navContainer {
+  position: fixed;
+  height: 50px;
+  top: 0;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+.footerContainer #logo img,
+.navContainer #logo img {
+  height: 30px;
 }
 .footerNavDivider {
   display: inline-block;
@@ -223,4 +258,9 @@ textarea {
   height: 8px;
   background-color: #b6b6b6;
   margin: 0px 10px 0px 10px;
+}
+.profileMenu img {
+  border-radius: 100%;
+  height: 30px;
+  border: solid 2px rgba(102, 102, 102, 0.5);
 }
