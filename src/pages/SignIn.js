@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Input, Button } from "../pattern/forms/Fields";
 import Footer from "../components/Footer";
-import "../pattern/pattern.css";
-import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
+
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class SignIn extends Component {
   state = {
@@ -191,7 +191,7 @@ class SignIn extends Component {
                           }
                           gradient={["#004196", "#004196"]}
                           gap="10px"
-                          icon={<FontAwesomeIcon icon={faEnvelopeSquare} />}
+                          icon={<FontAwesomeIcon icon={faEnvelope} />}
                         />
                       </div>
                       <div className="googleLogin" style={{ width: "100%" }}>

@@ -172,3 +172,21 @@ export const Button = (props) => {
     </div>
   );
 };
+
+export const TextButton = (props) => {
+  return (
+    <div
+      style={{
+        fontSize: "14px",
+        fontWeight: 900,
+        marginBottom: "15px",
+        display: "inline-block",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center" }}>
+        {props.label}
+        <span style={{ marginLeft: "7px" }}>{props.icon}</span>
+      </div>
+    </div>
+  );
+};
