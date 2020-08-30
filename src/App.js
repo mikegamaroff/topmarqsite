@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
+import Upgrade from "./pages/Upgrade";
 const myHistory = createBrowserHistory();
 export class App extends Component {
   render() {
@@ -15,6 +16,7 @@ export class App extends Component {
               <Switch>
                 <Route exact path="/" render={() => <SignIn />} />
                 <Route exact path="/home" render={() => <Home />} />
+                <Route exact path="/upgrade" render={() => <Upgrade />} />
               </Switch>
             </div>
           </Router>

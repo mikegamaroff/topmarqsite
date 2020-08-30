@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+html {
+  background-image: url("/images/carbg.png");
+  background-repeat: repeat;
+}
+
 html,
 body,
 input,
@@ -12,6 +18,7 @@ textarea {
 }
 .pageHolder,
 .pageHolderInside,
+.pageHolderHero,
 .heroHolder,
 .heroPage,
 .heroContentHeader,
@@ -24,9 +31,11 @@ select,
 .profileMenu,
 .column-three,
 .navButtons,
+.badgeHolder,
 .cardHero,
 .cardbase,
 .column-maincontent,
+.upgradeTable #separator,
 textarea {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -60,21 +69,27 @@ h2 {
   display: flex;
   justify-content: flex-end;
 }
-.pageHolder,
-.pageHolderInside {
+
+.pageHolder {
   position: absolute;
   width: 100%;
-
-  background-image: url("/images/carbg.png");
-  background-repeat: repeat;
-}
-.pageHolder {
   height: 100%;
   padding-bottom: 60px;
 }
-.pageHolderInside {
+
+.pageHolderHero {
+  position: absolute;
+  width: 100%;
+
   margin-top: 60px;
 }
+
+.pageHolderInside {
+  position: absolute;
+  width: 100%;
+  margin-top: 60px;
+}
+
 .column-three {
   display: grid;
   grid-template-columns: 300px auto 300px;
@@ -104,7 +119,13 @@ h2 {
 }
 .heroHolder {
   display: grid;
+}
+.heroHolderSignin {
   grid-template-columns: 40% 60%;
+  height: 100%;
+}
+.heroHolderUpgrade {
+  grid-template-columns: 25% 75%;
   height: 100%;
 }
 .heroPage {
@@ -112,7 +133,8 @@ h2 {
   background-size: cover;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  position: absolute;
+
   position: inherit;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.56);
@@ -124,8 +146,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
 }
 .heroContent {
   padding: 10%;
@@ -185,7 +205,9 @@ h2 {
   left: -35px;
   font-size: 33px;
 }
-
+.margin-bottom-60 {
+  margin-bottom: 60px;
+}
 .card {
   position: relative;
   background: #ffffff;
@@ -194,11 +216,25 @@ h2 {
   padding: 20px;
   width: 100%;
 }
-.loginHolder {
+.loginHolder,
+.largeCardHolder {
   display: flex;
-  padding: 5%;
+
   justify-content: center;
+  align-items: center;
+}
+.largeCardHolder {
+  margin: 0 0 auto 0;
+
+  padding: 30px 30px 90px 30px;
+}
+
+.upgradeHolder {
+  padding: 20px;
+}
+.loginHolder {
   margin: auto;
+  padding-bottom: 80px;
 }
 .loginContent {
   padding: 20px;
@@ -319,4 +355,98 @@ h2 {
   border-radius: 100%;
   height: 30px;
   border: solid 2px rgba(102, 102, 102, 0.5);
+}
+.upgradeHero {
+  background-image: linear-gradient(180deg, #eeeeee 0%, #f5f5f5 100%);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 13px 13px 0 0;
+  background: #96a9c1;
+  display: grid;
+  grid-template-columns: 33.333% 33.333% 33.333%;
+  align-items: center;
+  padding: 15px;
+}
+.upgradeHero h1 {
+  font-size: 20px;
+  color: rgba(249, 249, 249, 0.8);
+  letter-spacing: 0;
+  text-align: center;
+}
+.upgradeHero #col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 20px 0 20px;
+  position: relative;
+}
+.badgeHolder {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -75px;
+}
+.badgeHolder img {
+  width: 90px;
+}
+.upgradeHero #price {
+  font-size: 35px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  height: 40px;
+}
+.upgradeHero #annual {
+  height: 20px;
+
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.66);
+  letter-spacing: 0;
+  text-align: center;
+}
+.upgradeHero #howlong {
+  height: 20px;
+
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0;
+}
+.upgradeHero #howlong span {
+  margin: 0 5px 0 5px;
+  cursor: pointer;
+}
+.upgradeHeroCap {
+  background: #dbe1eb;
+  border-radius: 0 0 13px 13px;
+  text-align: center;
+  padding: 12px;
+  font-weight: 900;
+}
+.upgradeFloor {
+  background: #96a9c1;
+  display: grid;
+  grid-template-columns: 32% 6px 32% 6px 32%;
+  align-items: start;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 0 0 13px 13px;
+}
+.upgradeTable {
+  display: grid;
+  grid-template-columns: 32% 6px 32% 6px 32%;
+  align-items: start;
+
+  width: 100%;
+  text-align: center;
+}
+.upgradeTable #separator {
+  padding: 3px;
+  background-image: linear-gradient(180deg, #dbe1eb 0%, #fdfeff 100%);
+  height: 100%;
+}
+.upgradeList div {
+  font-size: 13px;
+  padding: 14px;
+  border-bottom: solid 0.1px rgba(223, 223, 223, 0.5);
 }
