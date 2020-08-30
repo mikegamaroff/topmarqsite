@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "./forms/Fields";
-import { PostUpVote, PostComments, Trophy } from "../svg/svgIcons";
+import { PostUpVote, PostComments, Trophy, Ribbon } from "../svg/svgIcons";
 
 export const UserInputField = (props) => {
   return (
@@ -66,6 +66,57 @@ export const Post = (props) => {
     <div>
       <div className="card" style={{ width: "100%", padding: "0px" }}>
         <div
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "18px",
+            zIndex: 3,
+          }}
+        >
+          <img src="images/optionsDots.svg" />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "-5px",
+            right: "40px",
+            zIndex: 2,
+          }}
+        >
+          <Ribbon color="#CC8B2F" id="ribbon" scale={1} />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "-3px",
+            right: "39px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 3,
+              margin: "auto",
+              top: 2,
+
+              fontSize: "16px",
+              letterSpacing: ".2px",
+              fontWeight: 900,
+              color: "#FFFFFF",
+              textShadow: "0 1px 0 rgba(34,26,0,0.50)",
+            }}
+          >
+            1st
+          </div>
+          <Ribbon color="#784A0C" id="ribbonShadow" scale={1} />
+        </div>
+        <div
           id="post-owner"
           style={{
             display: "flex",
@@ -93,10 +144,10 @@ export const Post = (props) => {
           </div>
         </div>
         <div style={{ padding: "15px" }}>
-          <h3 style={{ fontSize: "16px", margin: "0" }}>
+          <h3 style={{ fontSize: "16px", margin: "0", color: "#333333" }}>
             Mercedes Benz backs into Ferrari 458 Special
           </h3>
-          <div style={{ fontSize: "13px", marginTop: "5px" }}>
+          <div style={{ fontSize: "13px", marginTop: "5px", color: "#8A8A8A" }}>
             Looks like this will be a pretty expensive visit to the car show!!
           </div>
         </div>

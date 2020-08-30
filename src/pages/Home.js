@@ -5,6 +5,7 @@ import { EventCard, GroupShowcase } from "../pattern/Cards";
 import { PopularThreads } from "../pattern/Sections";
 import { AddThread, Post, Leaderboard } from "../pattern/Elements";
 import { TextButton } from "../pattern/forms/Button";
+import Footer from "../components/Footer";
 
 const popularThreadList = [
   {
@@ -177,6 +178,9 @@ class Home extends Component {
               <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
               <Leaderboard leaderboardData={leaderboardData} />
             </div>
+          </div>
+          <div>
+            <Footer />
           </div>
         </div>
       </div>
