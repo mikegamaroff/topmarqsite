@@ -4,7 +4,6 @@ export const Button = (props) => {
     <div
       style={{
         position: "relative",
-
         marginTop: props.gap,
         marginBottom: props.gap,
       }}
@@ -13,8 +12,9 @@ export const Button = (props) => {
         disabled={props.disabled || props.submitting}
         onClick={props.onClick}
         // className="testInput"
-
         style={{
+          padding: props.padding,
+          borderRadius: props.borderRadius,
           cursor: props.disabled || props.submitting ? "" : "pointer",
           background: props.error ? "#FFF0F0" : "#ecedf1",
           borderColor: props.error && "rgba(255, 4, 4, 0.5)",

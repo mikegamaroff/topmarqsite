@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { PlusCircle } from "../svg/svgIcons";
 import Nav from "../components/Nav";
-import { EventCard } from "../pattern/cards/EventCard";
+import { EventCard, GroupShowcase } from "../pattern/Cards";
 import { PopularThreads } from "../pattern/Sections";
-import { AddThread } from "../pattern/Elements";
+import { AddThread, Post, Leaderboard } from "../pattern/Elements";
 import { TextButton } from "../pattern/forms/Button";
 
 const popularThreadList = [
@@ -26,6 +26,66 @@ const popularThreadList = [
     userID: 20,
   },
 ];
+
+const leaderboardData = [
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+  {
+    pic: "/images/profPic.png",
+    name: "Dennis Han",
+    gold: 42,
+    silver: 36,
+    bronze: 62,
+  },
+];
+
 class Home extends Component {
   state = {
     signup: true,
@@ -87,13 +147,36 @@ class Home extends Component {
             <div className="column-maincontent">
               <PopularThreads popularThreadList={popularThreadList} />
               <AddThread
-                action={this.sendSearch}
+                submitButton={this.sendSearch}
                 handleChange={this.handleChange}
                 profileThumbnail="images/profPic.png"
+                placeholder="Add a thread"
                 userID={20}
+                gap={25}
+              />
+              <Post
+                profileThumbnail="images/profPic.png"
+                userID={20}
+                gap={25}
+                placeholder="Add Comment"
+                submitButton={this.sendSearch}
+                handleChange={this.handleChange}
               />
             </div>
-            <div className="margin-right">Right column</div>
+            <div className="margin-right">
+              <h2>Groups</h2>
+              <GroupShowcase
+                name="Mustangs"
+                description="Connect with other Mustang lovers and join like-minded groups"
+                date="Jul 16 - Aug 14"
+                attending={52}
+                image="/images/jeep.jpg"
+                gap={25}
+              />
+              <h2>Leaderboard</h2>
+              <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
+              <Leaderboard leaderboardData={leaderboardData} />
+            </div>
           </div>
         </div>
       </div>

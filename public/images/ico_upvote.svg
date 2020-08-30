@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Shape</title>
+    <defs>
+        <radialGradient cx="50%" cy="0.914779974%" fx="50%" fy="0.914779974%" r="99.08522%" gradientTransform="translate(0.500000,0.009148),scale(0.997999,1.000000),rotate(90.000000),translate(-0.500000,-0.009148)" id="radialGradient-1">
+            <stop stop-color="#C86F3E" offset="0%"></stop>
+            <stop stop-color="#D14B3C" offset="49.6724522%"></stop>
+            <stop stop-color="#7A0014" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Web-Facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-Topmarq_Home-Copy" transform="translate(-574.000000, -859.000000)" fill="url(#radialGradient-1)">
+            <g id="news" transform="translate(411.000000, 445.000000)">
+                <g id="Like-Copy" transform="translate(163.000000, 414.024768)">
+                    <g id="bg">
+                        <path d="M9.83865402,4.97379915e-13 C15.2723926,4.97379915e-13 19.677308,4.39610153 19.677308,9.81896759 C19.677308,15.2418336 15.2723926,19.6379352 9.83865402,19.6379352 C4.40491545,19.6379352 8.34177172e-12,15.2418336 8.34177172e-12,9.81896759 C8.34177172e-12,4.39610153 4.40491545,4.97379915e-13 9.83865402,4.97379915e-13 Z M10,3.9752322 L4,9.9752322 L5.83333333,11.8085655 L8.48484848,9.15705038 L8.48484848,15.9752322 L11.5151515,15.9752322 L11.5151515,9.15705038 L14.1666667,11.8085655 L16,9.9752322 L10,3.9752322 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

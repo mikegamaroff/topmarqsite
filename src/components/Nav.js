@@ -38,7 +38,7 @@ class Footer extends Component {
     return (
       <div>
         <div className="navContainer">
-          <div className="column-three">
+          <div className="column-three column-menu">
             <div id="logo" className="vertical-center">
               <div style={{ padding: "0px 0px 0px 7px" }}>
                 <img src="/images/topLogo.svg" />

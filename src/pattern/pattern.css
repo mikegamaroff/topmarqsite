@@ -90,7 +90,7 @@ input::-webkit-input-placeholder {
 }
 button {
   display: inline-block;
-  border-radius: 13px;
+
   border: none;
   outline: none;
   font-size: 13px;

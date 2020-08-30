@@ -31,7 +31,7 @@ export const PopularThread = (props) => {
             height: "100%",
             background: `linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.4) 2%,
+      rgba(0, 0, 0, 0.4) 60%,
       rgba(0, 0, 0, 0.9) 100%
     ),
     url("${props.image}") no-repeat center center`,

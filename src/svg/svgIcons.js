@@ -1,10 +1,12 @@
 import React from "react";
+import { ColorLuminance } from "../methods/tools";
 export const Home = (props) => (
   <svg
     width="25px"
     height="25px"
     viewBox="0 0 27 25"
     version="1.1"
+    transform={`scale(${props.scale})`}
     xmlns="http://www.w3.org/2000/svg"
     id={props.id}
   >
@@ -22,6 +24,7 @@ export const Bell = (props) => (
     height="25px"
     viewBox="0 0 25 27"
     version="1.1"
+    transform={`scale(${props.scale})`}
     xmlns="http://www.w3.org/2000/svg"
     id={props.id}
   >
@@ -43,6 +46,7 @@ export const Events = (props) => (
     height="25px"
     viewBox="0 0 28 26"
     version="1.1"
+    transform={`scale(${props.scale})`}
     xmlns="http://www.w3.org/2000/svg"
     id={props.id}
   >
@@ -60,6 +64,7 @@ export const Forum = (props) => (
     height="27px"
     viewBox="0 0 26 27"
     version="1.1"
+    transform={`scale(${props.scale})`}
     xmlns="http://www.w3.org/2000/svg"
     id={props.id}
   >
@@ -76,6 +81,7 @@ export const Groups = (props) => (
     width="30px"
     viewBox="0 -1 27 28"
     version="1.1"
+    transform={`scale(${props.scale})`}
     xmlns="http://www.w3.org/2000/svg"
     id={props.id}
   >
@@ -97,6 +103,7 @@ export const PlusCircle = (props) => (
     version="1.1"
     fill="#C6C6C6"
     fill-rule="evenodd"
+    transform={`scale(${props.scale})`}
     xmlns="http://www.w3.org/2000/svg"
     style={{ width: props.size, display: "flex", alignItems: "center" }}
   >
@@ -111,6 +118,126 @@ export const PlusCircle = (props) => (
           d="M132,9 L130,9 L130,12 L127,12 L127,14 L130,14 L130,17 L132,17 L132,14 L135,14 L135,12 L132,12 M131,20 C127.134007,20 124,16.8659932 124,13 C124,9.13400675 127.134007,6 131,6 C134.865993,6 138,9.13400675 138,13 C138,16.8659932 134.865993,20 131,20 M131,4 C126.029437,4 122,8.02943725 122,13 C122,17.9705627 126.029437,22 131,22 C135.970563,22 140,17.9705627 140,13 C140,8.02943725 135.970563,4 131,4"
           id="Shape"
           transform="translate(131.000000, 13.000000) rotate(-360.000000) translate(-131.000000, -13.000000) "
+        ></path>
+      </g>
+    </g>
+  </svg>
+);
+
+export const PostComments = (props) => (
+  <svg
+    width="20px"
+    height="20px"
+    viewBox="0 0 20 20"
+    version="1.1"
+    fill="url(#linearGradient-1)"
+    /*  fill={props.color} */
+
+    fill-rule="evenodd"
+    transform={`scale(${props.scale})`}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title>PostComments</title>
+    <defs>
+      <linearGradient
+        x1="50%"
+        y1="0.914779974%"
+        x2="50%"
+        y2="100%"
+        id="linearGradient-1"
+      >
+        <stop stop-color={ColorLuminance(props.color, 90)} offset="0%"></stop>
+        <stop stop-color={props.color} offset="100%"></stop>
+      </linearGradient>
+    </defs>
+    <g
+      id="01-Topmarq_Home-Copy"
+      transform="translate(-437.000000, -859.000000)"
+    >
+      <g id="news" transform="translate(411.000000, 445.000000)">
+        <g id="Like" transform="translate(26.000000, 414.024768)">
+          <path
+            d="M9.83865402,0 C15.2723926,0 19.677308,4.39610153 19.677308,9.81896759 C19.677308,15.2418336 15.2723926,19.6379352 9.83865402,19.6379352 C4.40491545,19.6379352 0,15.2418336 0,9.81896759 C0,4.39610153 4.40491545,0 9.83865402,0 Z M13.8306594,6.97421986 C14.1062333,7.36456786 14.269,7.84316737 14.269,8.36160942 L14.269,8.36160942 L14.269,10.7348083 L14.2636051,10.8972563 C14.1813227,12.1324352 13.1679362,13.1209754 11.9200638,13.1209754 L11.9200638,13.1209754 L10.1455957,13.1209754 L10.0789291,13.1291406 C10.033539,13.1397074 9.98814894,13.1598803 9.95410638,13.1858169 L9.95410638,13.1858169 L9,14.0232322 L9.13282979,14.0561339 L9.13282979,15.3918688 C9.13282979,15.6252982 9.26048936,15.832791 9.46474468,15.9235691 C9.54134043,15.962474 9.63070213,15.9754423 9.70729787,15.9754423 C9.8477234,15.9754423 9.97538298,15.9365374 10.0775106,15.832791 L10.0775106,15.832791 L11.9541064,14.1858169 C12.0051702,14.146912 12.081766,14.1209754 12.1455957,14.1209754 L12.1455957,14.1209754 L13.9200638,14.1209754 C15.2221915,14.1209754 16.269,13.0446065 16.269,11.7348083 L16.269,11.7348083 L16.269,9.36160942 C16.269,8.03884284 15.2094255,6.97544227 13.9200638,6.97544227 L13.9200638,6.97544227 Z M10.6510638,4.9752322 L6.34893617,4.9752322 C5.04680851,4.9752322 4,6.05160107 4,7.36139935 L4,7.36139935 L4,9.72162989 C4,10.849872 4.79148936,11.8354627 5.86382979,12.0559238 L5.86382979,12.0559238 L5.86382979,13.3916587 C5.86382979,13.6250881 5.99148936,13.8325809 6.19574468,13.923359 C6.27234043,13.9622639 6.36170213,13.9752322 6.43829787,13.9752322 C6.5787234,13.9752322 6.70638298,13.9363273 6.80851064,13.8325809 L6.80851064,13.8325809 L8.68510638,12.1856068 C8.73617021,12.1467019 8.81276596,12.1207653 8.87659574,12.1207653 L8.87659574,12.1207653 L10.6510638,12.1207653 C11.9531915,12.1207653 13,11.0443965 13,9.73459819 L13,9.73459819 L13,7.36139935 C13,6.03863277 11.9404255,4.9752322 10.6510638,4.9752322 L10.6510638,4.9752322 Z"
+            id="Combined-Shape"
+          ></path>
+        </g>
+      </g>
+    </g>
+  </svg>
+);
+
+export const PostUpVote = (props) => (
+  <svg
+    width="20px"
+    height="20px"
+    viewBox="0 0 20 20"
+    version="1.1"
+    fill="url(#linearGradient-2)"
+    fill-rule="evenodd"
+    transform={`scale(${props.scale})`}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title>PostUpvote</title>
+    <defs>
+      <linearGradient
+        x1="50%"
+        y1="0.914779974%"
+        x2="50%"
+        y2="100%"
+        id="linearGradient-2"
+      >
+        <stop stop-color={ColorLuminance(props.color, 90)} offset="0%"></stop>
+        <stop stop-color={props.color} offset="100%"></stop>
+      </linearGradient>
+    </defs>
+    <g
+      id="01-Topmarq_Home-Copy"
+      transform="translate(-574.000000, -859.000000)"
+    >
+      <g id="news" transform="translate(411.000000, 445.000000)">
+        <g id="Like-Copy" transform="translate(163.000000, 414.024768)">
+          <g id="bg">
+            <path
+              d="M9.83865402,4.97379915e-13 C15.2723926,4.97379915e-13 19.677308,4.39610153 19.677308,9.81896759 C19.677308,15.2418336 15.2723926,19.6379352 9.83865402,19.6379352 C4.40491545,19.6379352 8.34177172e-12,15.2418336 8.34177172e-12,9.81896759 C8.34177172e-12,4.39610153 4.40491545,4.97379915e-13 9.83865402,4.97379915e-13 Z M10,3.9752322 L4,9.9752322 L5.83333333,11.8085655 L8.48484848,9.15705038 L8.48484848,15.9752322 L11.5151515,15.9752322 L11.5151515,9.15705038 L14.1666667,11.8085655 L16,9.9752322 L10,3.9752322 Z"
+              id="Shape"
+            ></path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+);
+
+export const Trophy = (props) => (
+  <svg
+    width="20px"
+    height="20px"
+    viewBox="0 0 20 20"
+    version="1.1"
+    fill={`url(#${props.id})`}
+    fill-rule="evenodd"
+    transform={`scale(${props.scale})`}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title>Trophy</title>
+    <defs>
+      <linearGradient
+        x1="50%"
+        y1="0.914779974%"
+        x2="50%"
+        y2="100%"
+        id={props.id}
+      >
+        <stop stop-color={ColorLuminance(props.color, 40)} offset="0%"></stop>
+        <stop stop-color={props.color} offset="100%"></stop>
+      </linearGradient>
+    </defs>
+
+    <g transform="translate(-1300.000000, -472.000000)">
+      <g id="Group-18" transform="translate(1300.000000, 472.000000)">
+        <path
+          d="M16,0 C15.1,0 14,1 14,2 L6,2 C6,1 4.9,0 4,0 L0,0 L0,9 C0,10 1,11 2,11 L4.2,11 C4.6,13 5.9,14.7 9,15 L9,17.08 C6,17.54 6,20 6,20 L14,20 C14,20 14,17.54 11,17.08 L11,15 C14.1,14.7 15.4,13 15.8,11 L18,11 C19,11 20,10 20,9 L20,0 L16,0 M4.70588235,9.41176471 L2.35294118,9.41176471 L2.35294118,2.35294118 L4.70588235,2.35294118 L4.70588235,9.41176471 M17.6470588,9.41176471 L15.2941176,9.41176471 L15.2941176,2.35294118 L17.6470588,2.35294118 L17.6470588,9.41176471 Z"
+          id="Shape"
         ></path>
       </g>
     </g>

@@ -11,7 +11,7 @@ export const Input = (props) => {
         height: props.height,
         marginTop: props.gap,
         marginBottom: props.gap,
-        margin: "0px",
+
         height: "100%",
       }}
     >
@@ -24,10 +24,11 @@ export const Input = (props) => {
         placeholder={props.placeholder}
         name={props.name}
         type={props.type}
-        onChange={props.onChange}
+        handleChange={props.handleChange}
         autoComplete={props.autoComplete}
         style={{
           color: props.color,
+          height: props.height,
           background: props.error ? "#FFF0F0" : "#ecedf1",
           borderColor: `${props.error && "rgba(255, 4, 4, 0.5)"}`,
         }}
@@ -55,7 +56,7 @@ export const Textarea = (props) => {
         name={props.name}
         type={props.type}
         style={{ color: props.color }}
-        onChange={props.onChange}
+        handleChange={props.handleChange}
         rows={props.rows}
         autoComplete={props.autoComplete}
       ></textarea>
