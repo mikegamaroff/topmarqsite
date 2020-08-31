@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
+import Events from "./pages/Events";
 import Upgrade from "./pages/Upgrade";
 const myHistory = createBrowserHistory();
 export class App extends Component {
@@ -16,6 +17,7 @@ export class App extends Component {
               <Switch>
                 <Route exact path="/" render={() => <SignIn />} />
                 <Route exact path="/home" render={() => <Home />} />
+                <Route exact path="/events" render={() => <Events />} />
                 <Route exact path="/upgrade" render={() => <Upgrade />} />
               </Switch>
             </div>

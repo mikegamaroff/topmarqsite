@@ -24,6 +24,7 @@ textarea {
 .heroContentHeader,
 .heroContent,
 .card,
+.graycard,
 .footerContainer,
 input,
 select,
@@ -208,13 +209,20 @@ h2 {
 .margin-bottom-60 {
   margin-bottom: 60px;
 }
-.card {
+.card,
+.graycard {
   position: relative;
-  background: #ffffff;
+
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
   border-radius: 13px;
   padding: 20px;
   width: 100%;
+}
+.graycard {
+  background: #ecedf1;
+}
+.card {
+  background: #ffffff;
 }
 .loginHolder,
 .largeCardHolder {

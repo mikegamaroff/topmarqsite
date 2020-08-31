@@ -1,7 +1,18 @@
 import React from "react";
 import { Input } from "./forms/Fields";
+import { Button } from "./forms/Button";
 import { PostUpVote, PostComments, Trophy, Ribbon } from "../svg/svgIcons";
-
+import {
+  faCalendarAlt,
+  faThList,
+  faLaptop,
+  faClock,
+  faUsers,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { InPerson } from "../svg/svgIcons";
+import { text_truncate } from "../methods/tools";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const UserInputField = (props) => {
   return (
     <div
@@ -61,6 +72,121 @@ export const AddThread = (props) => {
   );
 };
 
+export const GoPremiumBox = (props) => {
+  return (
+    <div>
+      <div className="graycard" style={{ width: "100%", padding: "10px" }}>
+        <div
+          style={{
+            fontSize: "13px",
+            color: "#0F4290",
+            textAlign: "right",
+            lineHeight: "20px",
+            textAlign: "right",
+            fontStyle: "italic",
+            marginBottom: "10px",
+            fontWeight: 600,
+          }}
+        >
+          Go Premium Now »
+        </div>
+        <div
+          style={{
+            background: "#FFFFFF",
+            boxShadow: "inset 0 1px 3px 0 rgba(0,0,0,0.3)",
+            borderRadius: "13px",
+            padding: "15px",
+            fontSize: "12px",
+          }}
+        >
+          <div style={{ position: "absolute", top: "-18px", left: 0 }}>
+            <img style={{ width: "70px" }} src="images/badgeGold.png" />
+          </div>
+          <h3 style={{ margin: 0, fontSize: "13px" }}>
+            Enjoy a host of benefits:
+          </h3>
+          <ul
+            style={{
+              marginLeft: "-20px",
+              marginBottom: 0,
+              paddLeft: 0,
+              listStyle: `square inside url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==')`,
+              listStylePosition: "outside",
+            }}
+          >
+            <li style={{}}>attend or create unlimited shows and events</li>
+            <li>submit your cars for entry</li>
+            <li>Another benefit</li>
+          </ul>
+        </div>
+      </div>
+      <div style={{ height: props.gap }}></div>
+    </div>
+  );
+};
+
+export const RibbonElement = (props) => {
+  let color = "";
+  let place = "";
+  if (props.award === "gold") {
+    color = "#E9990E";
+    place = "1st";
+  } else if (props.award === "silver") {
+    color = "#8C8C8C";
+    place = "2nd";
+  } else if (props.award === "bronze") {
+    color = "#C56033";
+    place = "3rd";
+  } else {
+    color = "#F11A1A";
+    place = "Err";
+  }
+  return (
+    <div>
+      <div
+        style={{
+          position: "absolute",
+          right: 0,
+          zIndex: 2,
+        }}
+      >
+        <Ribbon color={color} id="ribbon" scale={1} />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          top: 2,
+          right: -2,
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: 2,
+            left: -1,
+            width: "100%",
+
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 3,
+            fontSize: "16px",
+            letterSpacing: ".2px",
+            fontWeight: 900,
+            color: "#FFFFFF",
+            textShadow: "0 1px 0 rgba(34,26,0,0.50)",
+          }}
+        >
+          {place}
+        </div>
+        <Ribbon color="#595959" id="ribbonShadow" scale={1} />
+      </div>
+    </div>
+  );
+};
 export const Post = (props) => {
   return (
     <div>
@@ -83,39 +209,9 @@ export const Post = (props) => {
             zIndex: 2,
           }}
         >
-          <Ribbon color="#CC8B2F" id="ribbon" scale={1} />
+          <RibbonElement award="bronze" />
         </div>
-        <div
-          style={{
-            position: "absolute",
-            top: "-3px",
-            right: "39px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              zIndex: 3,
-              margin: "auto",
-              top: 2,
 
-              fontSize: "16px",
-              letterSpacing: ".2px",
-              fontWeight: 900,
-              color: "#FFFFFF",
-              textShadow: "0 1px 0 rgba(34,26,0,0.50)",
-            }}
-          >
-            1st
-          </div>
-          <Ribbon color="#784A0C" id="ribbonShadow" scale={1} />
-        </div>
         <div
           id="post-owner"
           style={{
@@ -207,6 +303,190 @@ export const Post = (props) => {
             placeholder={props.placeholder}
             profileThumbnail={props.profileThumbnail}
           />
+        </div>
+      </div>
+      <div style={{ height: props.gap }}></div>
+    </div>
+  );
+};
+
+export const UpcomingEvent = (props) => {
+  return (
+    <div>
+      <div className="card" style={{ width: "100%", padding: "0px" }}>
+        <div
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "18px",
+            zIndex: 3,
+          }}
+        >
+          <img src="images/optionsDots.svg" />
+        </div>
+        <div style={{ padding: "15px 15px 0 15px" }}>
+          <h1 style={{ fontSize: "16px", margin: 0 }}>
+            <span style={{ marginRight: "8px" }}>
+              <FontAwesomeIcon size="s" color="#333333" icon={faCalendarAlt} />
+            </span>
+            {text_truncate(props.name, props.nameLimit)}
+          </h1>
+          <p style={{ fontSize: "12px", opacity: 0.8 }}>
+            {text_truncate(props.description, props.descriptionLimit)}
+          </p>
+        </div>
+        <div
+          style={{
+            padding: "10px 15px 10px 15px",
+            display: "flex",
+            fontSize: "12px",
+            fontWeight: 500,
+            color: "#333333",
+          }}
+        >
+          <div
+            style={{
+              marginRight: "15px",
+              display: "flex",
+              alignItems: "center",
+              color: "#B0B0B0",
+              fontweight: 500,
+            }}
+          >
+            <span style={{ marginRight: "5px" }}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faClock} />
+            </span>
+            <span>{props.date}</span>
+          </div>
+          <div
+            style={{
+              marginRight: "15px",
+              display: "flex",
+              alignItems: "center",
+              color: "#B0B0B0",
+              fontweight: 500,
+            }}
+          >
+            <span style={{ marginRight: "5px" }}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />
+            </span>
+            <span>{props.attending} Attending</span>
+          </div>
+          <div
+            style={{
+              marginRight: "15px",
+              display: "flex",
+              alignItems: "center",
+              color: "#B0B0B0",
+              fontweight: 500,
+            }}
+          >
+            <span style={{ marginRight: "5px" }}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faMapMarkerAlt} />
+            </span>
+            <span>{props.place}</span>
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            padding: "0px 15px 0px 15px",
+            boxSizing: "border-box",
+            webkitBoxSizing: "border-box",
+            MozBoxSizing: "border-box",
+            height: "300px",
+            width: "100%",
+            fontSize: "13px",
+            lineHeight: "1.5",
+            paddingBottom: "15px",
+            borderTop: "solid 1px #D8D8D8",
+            borderBottom: "solid 1px #D8D8D8",
+            background: `linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url("${props.image}") no-repeat center center`,
+
+            backgroundSize: "cover",
+
+            color: "white",
+            flexDirection: "column",
+            justifyContent: `flex-end`,
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "auto auto",
+
+              alignItems: "flex-end",
+            }}
+          >
+            <div style={{ marginRight: "30px" }}>{props.longDescription}</div>
+            <Button
+              label="Details"
+              submitting={false}
+              fullwidth={false}
+              color="#FFFFFF"
+              disabled={false}
+              padding={"8px 20px 8px 20px"}
+              borderRadius={8}
+              /* onClick={} */
+              gradient={["#EBAE58", "#EBAE58"]}
+              gap={0}
+            />
+          </div>
+        </div>
+
+        <div
+          style={{
+            padding: "15px",
+            display: "flex",
+            fontSize: "13px",
+            color: "#333333",
+          }}
+        >
+          <div
+            style={{
+              marginRight: "15px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ marginRight: "5px" }}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
+            </span>
+            <span>{props.classes} classes</span>
+          </div>
+          {props.virtual ? (
+            <div
+              style={{
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <span style={{ marginRight: "5px" }}>
+                <FontAwesomeIcon size="s" color="#606670" icon={faLaptop} />
+              </span>
+              <span>virtual</span>
+            </div>
+          ) : null}
+          {props.inPerson ? (
+            <div
+              style={{
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <span style={{ marginRight: "5px" }}>
+                <InPerson color="#606670" />
+              </span>
+              <span>In person</span>
+            </div>
+          ) : null}
         </div>
       </div>
       <div style={{ height: props.gap }}></div>

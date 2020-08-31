@@ -1,4 +1,6 @@
 import React from "react";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Button = (props) => {
   return (
     <div
@@ -61,6 +63,11 @@ export const TextButton = (props) => {
           alignItems: "center",
         }}
       >
+        <span style={{ marginRight: "7px" }}>
+          {props.locked ? (
+            <FontAwesomeIcon size="s" color="#EBAE58" icon={faLock} />
+          ) : null}
+        </span>
         {props.label}
         <span style={{ marginLeft: "7px" }}>{props.icon}</span>
       </div>

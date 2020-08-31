@@ -124,6 +124,7 @@ class Home extends Component {
               <div className="align-right">
                 <TextButton
                   label={"Create event"}
+                  locked={true}
                   icon={<PlusCircle size={15} />}
                 />
               </div>
