@@ -359,7 +359,9 @@ h2 {
   background-color: #b6b6b6;
   margin: 0px 10px 0px 10px;
 }
-.profileMenu img {
+
+.profileMenu img,
+.profilePic img {
   border-radius: 100%;
   height: 30px;
   border: solid 2px rgba(102, 102, 102, 0.5);

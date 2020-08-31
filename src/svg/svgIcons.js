@@ -236,41 +236,54 @@ export const PostUpVote = (props) => (
   </svg>
 );
 
-export const Trophy = (props) => (
-  <svg
-    width="20px"
-    height="20px"
-    viewBox="0 0 20 20"
-    version="1.1"
-    fill={`url(#${props.id})`}
-    fill-rule="evenodd"
-    transform={`scale(${props.scale})`}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <title>Trophy</title>
-    <defs>
-      <linearGradient
-        x1="50%"
-        y1="0.914779974%"
-        x2="50%"
-        y2="100%"
-        id={props.id}
-      >
-        <stop stop-color={ColorLuminance(props.color, 40)} offset="0%"></stop>
-        <stop stop-color={props.color} offset="100%"></stop>
-      </linearGradient>
-    </defs>
+export const Trophy = (props) => {
+  let color = "";
 
-    <g transform="translate(-1300.000000, -472.000000)">
-      <g id="Group-18" transform="translate(1300.000000, 472.000000)">
-        <path
-          d="M16,0 C15.1,0 14,1 14,2 L6,2 C6,1 4.9,0 4,0 L0,0 L0,9 C0,10 1,11 2,11 L4.2,11 C4.6,13 5.9,14.7 9,15 L9,17.08 C6,17.54 6,20 6,20 L14,20 C14,20 14,17.54 11,17.08 L11,15 C14.1,14.7 15.4,13 15.8,11 L18,11 C19,11 20,10 20,9 L20,0 L16,0 M4.70588235,9.41176471 L2.35294118,9.41176471 L2.35294118,2.35294118 L4.70588235,2.35294118 L4.70588235,9.41176471 M17.6470588,9.41176471 L15.2941176,9.41176471 L15.2941176,2.35294118 L17.6470588,2.35294118 L17.6470588,9.41176471 Z"
-          id="Shape"
-        ></path>
+  if (props.award === "gold") {
+    color = "#A77127";
+  } else if (props.award === "silver") {
+    color = "#707070";
+  } else if (props.award === "bronze") {
+    color = "#B76D42";
+  } else {
+    color = "#F11A1A";
+  }
+  return (
+    <svg
+      width="20px"
+      height="20px"
+      viewBox="0 0 20 20"
+      version="1.1"
+      fill={`url(#${props.id})`}
+      fill-rule="evenodd"
+      transform={`scale(${props.scale})`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>Trophy</title>
+      <defs>
+        <linearGradient
+          x1="50%"
+          y1="0.914779974%"
+          x2="50%"
+          y2="100%"
+          id={props.id}
+        >
+          <stop stop-color={ColorLuminance(color, 40)} offset="0%"></stop>
+          <stop stop-color={color} offset="100%"></stop>
+        </linearGradient>
+      </defs>
+
+      <g transform="translate(-1300.000000, -472.000000)">
+        <g id="Group-18" transform="translate(1300.000000, 472.000000)">
+          <path
+            d="M16,0 C15.1,0 14,1 14,2 L6,2 C6,1 4.9,0 4,0 L0,0 L0,9 C0,10 1,11 2,11 L4.2,11 C4.6,13 5.9,14.7 9,15 L9,17.08 C6,17.54 6,20 6,20 L14,20 C14,20 14,17.54 11,17.08 L11,15 C14.1,14.7 15.4,13 15.8,11 L18,11 C19,11 20,10 20,9 L20,0 L16,0 M4.70588235,9.41176471 L2.35294118,9.41176471 L2.35294118,2.35294118 L4.70588235,2.35294118 L4.70588235,9.41176471 M17.6470588,9.41176471 L15.2941176,9.41176471 L15.2941176,2.35294118 L17.6470588,2.35294118 L17.6470588,9.41176471 Z"
+            id="Shape"
+          ></path>
+        </g>
       </g>
-    </g>
-  </svg>
-);
+    </svg>
+  );
+};
 
 export const Ribbon = (props) => (
   <svg

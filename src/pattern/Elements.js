@@ -112,11 +112,14 @@ export const GoPremiumBox = (props) => {
               paddLeft: 0,
               listStyle: `square inside url('data:image/gif;base64,R0lGODlhBQAKAIABAAAAAP///yH5BAEAAAEALAAAAAAFAAoAAAIIjI+ZwKwPUQEAOw==')`,
               listStylePosition: "outside",
+              lineHeight: 1.3,
             }}
           >
-            <li style={{}}>attend or create unlimited shows and events</li>
-            <li>submit your cars for entry</li>
-            <li>Another benefit</li>
+            <li style={{ margin: "0 0 6px 0" }}>
+              attend or create unlimited shows and events
+            </li>
+            <li style={{ margin: "0 0 6px 0" }}>submit your cars for entry</li>
+            <li style={{ margin: "0 0 0px 0" }}>Another benefit</li>
           </ul>
         </div>
       </div>
@@ -150,7 +153,7 @@ export const RibbonElement = (props) => {
           zIndex: 2,
         }}
       >
-        <Ribbon color={color} id="ribbon" scale={1} />
+        <Ribbon color={color} id={props.id} scale={1} />
       </div>
       <div
         style={{
@@ -209,7 +212,7 @@ export const Post = (props) => {
             zIndex: 2,
           }}
         >
-          <RibbonElement award="bronze" />
+          <RibbonElement award="gold" id="postID" />
         </div>
 
         <div
@@ -487,6 +490,221 @@ export const UpcomingEvent = (props) => {
               <span>In person</span>
             </div>
           ) : null}
+        </div>
+      </div>
+      <div style={{ height: props.gap }}></div>
+    </div>
+  );
+};
+
+export const EventClassPost = (props) => {
+  return (
+    <div>
+      <div>
+        <div
+          style={{
+            display: "flex",
+            padding: "0px 15px 0px 15px",
+            boxSizing: "border-box",
+            webkitBoxSizing: "border-box",
+            MozBoxSizing: "border-box",
+            height: "250px",
+            width: "100%",
+            fontSize: "13px",
+            lineHeight: "1.5",
+            paddingBottom: "15px",
+            borderTop: "solid 1px #D8D8D8",
+            borderBottom: "solid 1px #D8D8D8",
+            background: `
+url("${props.image}") no-repeat center center`,
+
+            backgroundSize: "cover",
+            position: "relative",
+            color: "white",
+            flexDirection: "column",
+            justifyContent: `flex-end`,
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "-5px",
+              right: "10px",
+              zIndex: 2,
+            }}
+          >
+            <RibbonElement
+              id={"ribbon" + props.id}
+              award={
+                props.id === 0
+                  ? "gold"
+                  : props.id === 1
+                  ? "silver"
+                  : props.id === 2
+                  ? "bronze"
+                  : false
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div style={{ display: "flex", padding: "4px", background: "#EFEFEF" }}>
+        <div>
+          <div className="profilePic" style={{ padding: "0px 7px 0px 0px" }}>
+            <img style={{ height: "100%" }} src={props.profilePic} />
+          </div>
+        </div>
+        <div>
+          <div style={{ fontSize: "12px", fontWeight: 600 }}>{props.name}</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+
+              fontSize: "12px",
+              paddingTop: "5px",
+            }}
+          >
+            {props.gold ? (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span>
+                  <Trophy award="gold" id="trophy1" scale={0.7} />
+                </span>
+                <span>{props.gold}</span>
+              </div>
+            ) : null}
+            {props.silver ? (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span>
+                  <Trophy award="silver" id="trophy2" scale={0.7} />
+                </span>
+                <span>{props.silver}</span>
+              </div>
+            ) : null}
+            {props.bronze ? (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span>
+                  <Trophy award="bronze" id="trophy3" scale={0.7} />
+                </span>
+                <span>{props.bronze}</span>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const EventClass = (props) => {
+  return (
+    <div>
+      <div className="card" style={{ width: "100%", padding: "0px" }}>
+        <div
+          style={{
+            position: "absolute",
+            top: "20px",
+            right: "18px",
+            zIndex: 3,
+          }}
+        >
+          <img src="images/optionsDots.svg" />
+        </div>
+        <div style={{ padding: "15px 15px 15px 15px" }}>
+          <h1 style={{ fontSize: "16px", margin: 0 }}>
+            {text_truncate(props.name, props.nameLimit)}
+          </h1>
+          <p style={{ fontSize: "12px", opacity: 0.8, marginBottom: "3px" }}>
+            {text_truncate(props.description, props.descriptionLimit)}
+          </p>
+          <CountdownClock />
+        </div>
+        <div
+          style={{
+            display: "grid",
+            width: "100%",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gridGap: "3px",
+          }}
+        >
+          {props.data &&
+            props.data.map((val, i) => {
+              return (
+                <div key={val.userID}>
+                  <EventClassPost
+                    name={val.name}
+                    userID={val.userID}
+                    gold={val.gold}
+                    silver={val.silver}
+                    bronze={val.bronze}
+                    image={val.image}
+                    profilePic={val.profilePic}
+                    id={i}
+                  />
+                </div>
+              );
+            })}
+        </div>
+        <div
+          style={{
+            padding: "15px",
+            display: "flex",
+            fontSize: "13px",
+            color: "#333333",
+          }}
+        >
+          <div
+            style={{
+              marginRight: "15px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ marginRight: "5px" }}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
+            </span>
+            <span>{props.classes} classes</span>
+          </div>
+          {props.virtual ? (
+            <div
+              style={{
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <span style={{ marginRight: "5px" }}>
+                <FontAwesomeIcon size="s" color="#606670" icon={faLaptop} />
+              </span>
+              <span>virtual</span>
+            </div>
+          ) : null}
+          {props.inPerson ? (
+            <div
+              style={{
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <span style={{ marginRight: "5px" }}>
+                <InPerson color="#606670" />
+              </span>
+              <span>In person</span>
+            </div>
+          ) : null}
+          <Button
+            label="View"
+            submitting={false}
+            fullwidth={false}
+            color="#FFFFFF"
+            disabled={false}
+            padding={"8px 20px 8px 20px"}
+            borderRadius={8}
+            /* onClick={} */
+            gradient={["#EBAE58", "#EBAE58"]}
+            gap={0}
+          />
         </div>
       </div>
       <div style={{ height: props.gap }}></div>
