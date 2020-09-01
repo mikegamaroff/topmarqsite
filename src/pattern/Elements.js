@@ -1,7 +1,14 @@
 import React from "react";
 import { Input } from "./forms/Fields";
 import { Button } from "./forms/Button";
-import { PostUpVote, PostComments, Trophy, Ribbon } from "../svg/svgIcons";
+
+import {
+  PostUpVote,
+  PostComments,
+  Trophy,
+  Ribbon,
+  Logo,
+} from "../svg/svgIcons";
 import {
   faCalendarAlt,
   faThList,
@@ -9,10 +16,15 @@ import {
   faClock,
   faUsers,
   faMapMarkerAlt,
+  faEye,
+  faArrowAltCircleUp,
+  faExternalLinkAlt,
+  faExclamationCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { InPerson } from "../svg/svgIcons";
 import { text_truncate } from "../methods/tools";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export const UserInputField = (props) => {
   return (
     <div
@@ -153,7 +165,7 @@ export const RibbonElement = (props) => {
           zIndex: 2,
         }}
       >
-        <Ribbon color={color} id={props.id} scale={1} />
+        <Ribbon color={color} id={props.id} size={props.size} />
       </div>
       <div
         style={{
@@ -168,7 +180,7 @@ export const RibbonElement = (props) => {
         <div
           style={{
             position: "absolute",
-            top: 2,
+            top: 5,
             left: -1,
             width: "100%",
 
@@ -185,7 +197,7 @@ export const RibbonElement = (props) => {
         >
           {place}
         </div>
-        <Ribbon color="#595959" id="ribbonShadow" scale={1} />
+        <Ribbon color="#595959" id="ribbonShadow" size={props.size} />
       </div>
     </div>
   );
@@ -212,7 +224,7 @@ export const Post = (props) => {
             zIndex: 2,
           }}
         >
-          <RibbonElement award="gold" id="postID" />
+          <RibbonElement award="gold" id="postID" size={40} />
         </div>
 
         <div
@@ -276,7 +288,7 @@ export const Post = (props) => {
             }}
           >
             <span style={{ marginRight: "5px" }}>
-              <PostComments color="#0155B0" scale=".9" />
+              <PostComments color="#0155B0" size={23} />
             </span>
             <span>2 comments</span>
           </div>
@@ -288,7 +300,7 @@ export const Post = (props) => {
             }}
           >
             <span style={{ marginRight: "5px" }}>
-              <PostUpVote color="#7A0014" scale=".9" />
+              <PostUpVote color="#7A0014" size={23} />
             </span>
             <span>8 closed</span>
           </div>
@@ -528,7 +540,7 @@ url("${props.image}") no-repeat center center`,
           <div
             style={{
               position: "absolute",
-              top: "-5px",
+              top: "-10px",
               right: "10px",
               zIndex: 2,
             }}
@@ -544,6 +556,7 @@ url("${props.image}") no-repeat center center`,
                   ? "bronze"
                   : false
               }
+              size={40}
             />
           </div>
         </div>
@@ -566,27 +579,32 @@ url("${props.image}") no-repeat center center`,
             }}
           >
             {props.gold ? (
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
                 <span>
-                  <Trophy award="gold" id="trophy1" scale={0.7} />
+                  <Trophy award="gold" id="trophy1" size={15} />
                 </span>
-                <span>{props.gold}</span>
+                <span style={{ margin: "0 5px 0 3px" }}>{props.gold}</span>
               </div>
             ) : null}
             {props.silver ? (
               <div style={{ display: "flex", alignItems: "center" }}>
                 <span>
-                  <Trophy award="silver" id="trophy2" scale={0.7} />
+                  <Trophy award="silver" id="trophy2" size={15} />
                 </span>
-                <span>{props.silver}</span>
+                <span style={{ margin: "0 5px 0 3px" }}>{props.silver}</span>
               </div>
             ) : null}
             {props.bronze ? (
               <div style={{ display: "flex", alignItems: "center" }}>
                 <span>
-                  <Trophy award="bronze" id="trophy3" scale={0.7} />
+                  <Trophy award="bronze" id="trophy3" size={15} />
                 </span>
-                <span>{props.bronze}</span>
+                <span style={{ margin: "0 5px 0 3px" }}>{props.bronze}</span>
               </div>
             ) : null}
           </div>
@@ -651,60 +669,76 @@ export const EventClass = (props) => {
             display: "flex",
             fontSize: "13px",
             color: "#333333",
+            alignItems: "center",
           }}
         >
+          <div>
+            <div
+              style={{
+                marginRight: "15px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  marginRight: "15px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ marginRight: "5px" }}>
+                  <FontAwesomeIcon size="s" color="#606670" icon={faEye} />
+                </span>
+                <span>{props.views} views</span>
+              </div>
+
+              <div
+                style={{
+                  marginRight: "15px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ marginRight: "5px" }}>
+                  <FontAwesomeIcon
+                    size="s"
+                    color="#606670"
+                    icon={faArrowAltCircleUp}
+                  />
+                </span>
+                <span>{props.votes} votes</span>
+              </div>
+            </div>
+            <div
+              style={{
+                marginTop: "13px",
+                fontStyle: "italic",
+                fontSize: "13px",
+              }}
+            >
+              See all {props.entries} entries to Any and all cars are welcome »
+            </div>
+          </div>
           <div
             style={{
-              marginRight: "15px",
-              display: "flex",
-              alignItems: "center",
+              position: "absolute",
+              right: "20px",
             }}
           >
-            <span style={{ marginRight: "5px" }}>
-              <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
-            </span>
-            <span>{props.classes} classes</span>
+            <Button
+              label="View"
+              submitting={false}
+              fullwidth={false}
+              color="#FFFFFF"
+              disabled={false}
+              padding={"8px 30px 8px 30px"}
+              borderRadius={8}
+              /* onClick={} */
+              gradient={["#EBAE58", "#EBAE58"]}
+              gap={0}
+            />
           </div>
-          {props.virtual ? (
-            <div
-              style={{
-                marginRight: "15px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <span style={{ marginRight: "5px" }}>
-                <FontAwesomeIcon size="s" color="#606670" icon={faLaptop} />
-              </span>
-              <span>virtual</span>
-            </div>
-          ) : null}
-          {props.inPerson ? (
-            <div
-              style={{
-                marginRight: "15px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <span style={{ marginRight: "5px" }}>
-                <InPerson color="#606670" />
-              </span>
-              <span>In person</span>
-            </div>
-          ) : null}
-          <Button
-            label="View"
-            submitting={false}
-            fullwidth={false}
-            color="#FFFFFF"
-            disabled={false}
-            padding={"8px 20px 8px 20px"}
-            borderRadius={8}
-            /* onClick={} */
-            gradient={["#EBAE58", "#EBAE58"]}
-            gap={0}
-          />
         </div>
       </div>
       <div style={{ height: props.gap }}></div>
@@ -775,7 +809,7 @@ export const Leaderboard = (props) => {
             justifyContent: "center",
           }}
         >
-          <Trophy color="#E2AC61" id="trophy1" scale={1} />
+          <Trophy award="gold" id="trophy1" size={20} />
         </div>
         <div
           style={{
@@ -784,7 +818,7 @@ export const Leaderboard = (props) => {
             justifyContent: "center",
           }}
         >
-          <Trophy color="#ABABAB" id="trophy2" scale={1} />
+          <Trophy award="silver" id="trophy2" size={20} />
         </div>
         <div
           style={{
@@ -793,7 +827,7 @@ export const Leaderboard = (props) => {
             justifyContent: "center",
           }}
         >
-          <Trophy color="#D37139" id="trophy3" scale={1} />
+          <Trophy award="bronze" id="trophy3" size={20} />
         </div>
       </div>
 
@@ -883,6 +917,95 @@ export const Leaderboard = (props) => {
             </div>
           );
         })}
+    </div>
+  );
+};
+
+export const DetailsList = (props) => {
+  const listStyle = {
+    marginRight: "10px",
+    display: "flex",
+    justifyContent: "center",
+
+    width: "20px",
+  };
+  const listHolderStyle = {
+    display: "flex",
+    paddingBottom: "10px",
+    alignItems: "center",
+  };
+  return (
+    <div style={{ color: "#858789", fontSize: "13px", fontWeight: "500" }}>
+      <div style={listHolderStyle}>
+        <div style={listStyle}>
+          <FontAwesomeIcon size="s" color="#606670" icon={faClock} />
+        </div>
+        <span>{props.date}</span>
+      </div>
+      <div style={listHolderStyle}>
+        <div style={listStyle}>
+          <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />
+        </div>
+        <span>{props.attending} attending</span>
+      </div>
+      <div style={listHolderStyle}>
+        <div style={listStyle}>
+          <FontAwesomeIcon size="s" color="#606670" icon={faMapMarkerAlt} />
+        </div>
+        <span>{props.location}</span>
+      </div>
+      <div style={listHolderStyle}>
+        <div style={listStyle}>
+          <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
+        </div>
+        <span>{props.classes} classes</span>
+      </div>
+      {props.virtual ? (
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            <FontAwesomeIcon size="s" color="#606670" icon={faLaptop} />
+          </div>
+          <span>Virtual</span>
+        </div>
+      ) : null}
+      {props.inPerson ? (
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            {/*  <FontAwesomeIcon size="s" color="#606670" icon={faMale} /> */}
+            <InPerson color="#606670" size={20} />
+          </div>
+          <span>In person</span>
+        </div>
+      ) : null}
+      <div style={listHolderStyle}>
+        <div style={listStyle}>
+          <FontAwesomeIcon size="s" color="#606670" icon={faExternalLinkAlt} />
+        </div>
+        <span>{props.link}</span>
+      </div>
+    </div>
+  );
+};
+export const ParagraphText = (props) => {
+  return (
+    <div>
+      <div>
+        <span style={{ marginRight: "4px" }}>{props.icon}</span>
+        <span style={{ fontSize: "14px", fontWeight: 900 }}>
+          {props.heading}
+        </span>
+      </div>
+      <div
+        style={{
+          fontSize: "13px",
+          fontStyle: "italic",
+          lineHeight: 1.5,
+          color: "#7B7B7B",
+        }}
+      >
+        {props.bodyText}
+      </div>
+      <div style={{ height: props.gap }}></div>
     </div>
   );
 };

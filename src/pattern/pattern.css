@@ -43,11 +43,14 @@
   width: 22px;
 }
 .xIcon {
+  position: absolute;
+  right: 8px;
   display: flex;
   align-items: center;
-  height: 100%;
+
   transition: all 0.2s ease;
   padding-right: 2px;
+  z-index: 2;
 }
 .xError {
   background: url("/images/error.svg") no-repeat center center transparent;

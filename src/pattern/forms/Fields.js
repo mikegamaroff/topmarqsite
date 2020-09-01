@@ -9,7 +9,7 @@ export const Input = (props) => {
       style={{
         width: props.submitButton ? `calc(${props.width} - 35px)` : props.width,
         height: props.height,
-        marginTop: props.gap,
+        /*     marginTop: props.gap, */
         marginBottom: props.gap,
 
         height: "100%",
@@ -18,8 +18,12 @@ export const Input = (props) => {
       <div className="errorIcon">
         {props.error ? xError : null}
         {!props.error && props.validated ? xValidated : null}
-        {props.icon ? <div className="xIcon">{props.icon}</div> : null}
       </div>
+      {props.icon ? (
+        <div className="xIcon" style={{ height: props.height }}>
+          {props.icon}
+        </div>
+      ) : null}
       <input
         placeholder={props.placeholder}
         name={props.name}

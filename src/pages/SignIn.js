@@ -66,7 +66,7 @@ class SignIn extends Component {
                         validated={false}
                         onChange={this.handleChange}
                         autoComplete="off"
-                        gap="10px"
+                        gap={15}
                       />
                     </div>
                     <div style={{ width: "100%" }}>
@@ -80,7 +80,7 @@ class SignIn extends Component {
                         validated={false}
                         onChange={this.handleChange}
                         autoComplete="off"
-                        gap="10px"
+                        gap={15}
                       />
                     </div>
                     <div style={{ width: "100%" }}>
@@ -94,7 +94,7 @@ class SignIn extends Component {
                         validated={false}
                         onChange={this.handleChange}
                         autoComplete="off"
-                        gap={10}
+                        gap={15}
                       />
                     </div>
                     <div style={{ width: "100%" }}>
@@ -107,7 +107,7 @@ class SignIn extends Component {
                         borderRadius={13}
                         onClick={this.handleSubmit}
                         gradient={["#EBAE58", "#EBAE58"]}
-                        gap="10px"
+                        gap={15}
                       />
                     </div>
                     <div>
@@ -142,7 +142,7 @@ class SignIn extends Component {
                         validated={false}
                         onChange={this.handleChange}
                         autoComplete="off"
-                        gap="10px"
+                        gap={15}
                       />
                     </div>
 
@@ -157,7 +157,7 @@ class SignIn extends Component {
                         validated={false}
                         onChange={this.handleChange}
                         autoComplete="off"
-                        gap="10px"
+                        gap={15}
                       />
                     </div>
                     <div style={{ width: "100%" }}>
@@ -170,7 +170,7 @@ class SignIn extends Component {
                         disabled={false}
                         onClick={this.handleSubmit}
                         gradient={["#EBAE58", "#EBAE58"]}
-                        gap="10px"
+                        gap={15}
                       />
                     </div>
 
@@ -191,7 +191,7 @@ class SignIn extends Component {
                           this.setState({ signup: !this.state.signup })
                         }
                         gradient={["#004196", "#004196"]}
-                        gap={10}
+                        gap={15}
                         icon={<FontAwesomeIcon icon={faEnvelope} />}
                       />
                     </div>

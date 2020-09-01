@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import { PlusCircle } from "../svg/svgIcons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMapMarkerAlt,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import Nav from "../components/Nav";
-import { EventCard } from "../pattern/Cards";
-import { EventClass, GoPremiumBox } from "../pattern/Elements";
-import { TextButton } from "../pattern/forms/Button";
+import { EventTitleCard } from "../pattern/Cards";
+import { EventClass, DetailsList, ParagraphText } from "../pattern/Elements";
+import TopmarqMaps from "../pattern/TopmarqMaps";
+
+import { Button } from "../pattern/forms/Button";
 import Footer from "../components/Footer";
 import Calendar from "react-calendar";
 import "../Calendar.css";
@@ -66,30 +72,49 @@ class EventDetail extends Component {
         <div className="pageHolderInside">
           <div className="column-three mainPage">
             <div className="margin-left">
-              <GoPremiumBox gap={25} />
-              <div className="align-right">
-                <TextButton
-                  label={"Create event"}
-                  locked={true}
-                  icon={<PlusCircle size={15} />}
-                />
-              </div>
-
-              <EventCard
-                name="Exotic Foreign Show Virtual"
-                description="All Classics (up to 1974) - Best Background Story"
-                date="Jul 16 - Aug 14"
-                attending={52}
+              <EventTitleCard
+                groupName={"Clear Lake Cars & Coffee"}
+                eventName="August Clear Lake Cars and Coffee Meet"
                 image="/images/all_cars2.jpeg"
+                gap={18}
+              />
+              <Button
+                label="Attend"
+                submitting={false}
+                fullwidth={true}
+                color="#FFFFFF"
+                disabled={false}
+                padding={"12px 12px 12px 12px"}
+                borderRadius={8}
+                /* onClick={} */
+                gradient={["#EBAE58", "#EBAE58"]}
                 gap={25}
               />
-              <EventCard
-                name="Classic Car Show Virtual"
-                description="All Classics (up to 1974) - Best Background Story"
-                date="Jul 16 - Aug 14"
-                attending={52}
-                image="/images/all_cars4.jpeg"
-                gap={25}
+              <h2>Details</h2>
+              <div
+                className="graycard"
+                style={{
+                  width: "100%",
+                  padding: "15px",
+                  fontSize: "12.5px",
+                  lineHeight: "1.5",
+                  fontStyle: "italic",
+                  marginBottom: 25,
+                }}
+              >
+                Topmarq's debut classic car show focused on your favorite
+                automotive classics. With 3 classes we all know and love and a
+                fourth trying something new, there’s something for any
+                petrolhead.
+              </div>
+              <DetailsList
+                date="Aug 8 - Aug 15"
+                attending={23}
+                location="Houston, TX"
+                classes={3}
+                virtual={true}
+                inPerson={true}
+                link={"Topmarq"}
               />
             </div>
             <div className="column-maincontent">
@@ -105,7 +130,7 @@ class EventDetail extends Component {
                   gap={30}
                   submitButton={this.sendSearch}
                   handleChange={this.handleChange}
-                  entries={12}
+                  entries={15}
                   votes={21}
                   views={423}
                 />
@@ -121,39 +146,69 @@ class EventDetail extends Component {
                   submitButton={this.sendSearch}
                   handleChange={this.handleChange}
                   entries={12}
-                  votes={21}
-                  views={423}
+                  votes={15}
+                  views={523}
                 />
               </div>
             </div>
 
             <div className="margin-right">
-              <h2>Event Calendar</h2>
-
               <div>
-                <Calendar
-                  onChange={this.onChange}
-                  value={this.state.date}
-                  tileClassName="content"
-                  tileClassName={({ date, view }) => {
-                    if (
-                      mark.find(
-                        (x) =>
-                          moment(x).format("MM-DD-YYYY") ===
-                          moment(date).format("MM-DD-YYYY")
-                      )
-                    ) {
-                      return "highlight";
-                    }
-                  }}
+                <ParagraphText
+                  icon={
+                    <FontAwesomeIcon
+                      size="lg"
+                      color="#606670"
+                      icon={faExclamationCircle}
+                    />
+                  }
+                  heading="Event Rules"
+                  bodyText={
+                    <div>
+                      <p>
+                        `Due to other group events being held in the Parking lot
+                        at Grace Community Church, the Clear Lake Cars and
+                        Coffee meet for August 8th will be held at the Detail
+                        Garage location in South Houston.
+                      </p>
+                      <p>
+                        Hope to see you all there and PLEASE respect the
+                        property and Mask Rules that are in effect.  THANK YOU
+                        ALL!!
+                      </p>
+                    </div>
+                  }
+                  gap={30}
+                />
+                <ParagraphText
+                  bodyText={
+                    <div>
+                      <p>
+                        Detail Garage South Houston
+                        <br />
+                        12503 Gulf Freeway
+                        <br />
+                        Houston TX 77034
+                      </p>
+                    </div>
+                  }
+                  heading="Location"
+                  icon={
+                    <FontAwesomeIcon
+                      size="lg"
+                      color="#606670"
+                      icon={faMapMarkerAlt}
+                    />
+                  }
+                  gap={5}
+                />
 
-                  // date will return every date visible on calendar and view will view type (eg. month)
-                  /*  if(){
-                      return 'highlight'; // your class name
-                     } */
+                <TopmarqMaps
+                  address="Detail Garage South Houston
+12503 Gulf Freeway
+Houston TX 77034"
                 />
               </div>
-              <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
             </div>
           </div>
           <div>

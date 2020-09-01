@@ -107,13 +107,14 @@ h2 {
 .margin-left {
   background-color: #ffffff;
   height: 100%;
-  padding: 20px;
 }
 .margin-right {
   box-shadow: -1px 0px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 25px;
 }
 .margin-left {
   box-shadow: 1px 0px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 .column-maincontent {
   padding: 20px;
@@ -324,7 +325,6 @@ h2 {
   width: 65px;
 }
 .navButtons #button svg {
-  height: 26px;
   fill: #9ca3ae;
   cursor: pointer;
 

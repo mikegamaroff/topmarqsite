@@ -43,7 +43,12 @@ class Footer extends Component {
               <div style={{ padding: "0px 0px 0px 7px" }}>
                 <img src="/images/topLogo.svg" />
               </div>
-              <div style={{ padding: "0px 20px 0px 10px", width: "100%" }}>
+              <div
+                style={{
+                  padding: "0px 20px 0px 10px",
+                  width: "100%",
+                }}
+              >
                 <Input
                   placeholder="Search"
                   name="username"
@@ -55,7 +60,7 @@ class Footer extends Component {
                   validated={false}
                   onChange={this.handleChange}
                   autoComplete="off"
-                  gap="10px"
+                  gap={0}
                   icon={
                     <FontAwesomeIcon
                       size="lg"
@@ -70,24 +75,24 @@ class Footer extends Component {
             </div>
             <div className="vertical-center navButtons">
               <div id="button">
-                <Home id="icon_home" />
+                <Home id="icon_home" size={26} />
 
                 <span className="navButtonBase" id="floor_home" />
               </div>
               <div id="button">
-                <Bell id="icon_notifications" />
+                <Bell id="icon_notifications" size={26} />
                 <span className="navButtonBase" id="floor_notifications" />
               </div>
               <div id="button">
-                <Events id="icon_events" />
+                <Events id="icon_events" size={26} />
                 <span className="navButtonBase" id="floor_events" />
               </div>
               <div id="button">
-                <Forum id="icon_forum" />
+                <Forum id="icon_forum" size={26} />
                 <span className="navButtonBase" id="floor_forum" />
               </div>
               <div id="button">
-                <Groups id="icon_groups" />
+                <Groups id="icon_groups" size={26} />
                 <span className="navButtonBase" id="floor_groups" />
               </div>
             </div>

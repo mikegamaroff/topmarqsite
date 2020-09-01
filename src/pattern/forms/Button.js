@@ -6,7 +6,7 @@ export const Button = (props) => {
     <div
       style={{
         position: "relative",
-        marginTop: props.gap,
+        /*         marginTop: props.gap, */
         marginBottom: props.gap,
       }}
     >

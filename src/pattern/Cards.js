@@ -105,6 +105,76 @@ export const EventCard = (props) => {
   );
 };
 
+export const EventTitleCard = (props) => {
+  return (
+    <div>
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+          style={{
+            borderRadius: "100%",
+            margin: "7px",
+            height: "30px",
+            border: "solid 2px #D2D2D2",
+          }}
+          src={"images/profPic.png"}
+        />
+
+        <div style={{ width: "100%", fontSize: "14px", fontWeight: 900 }}>
+          {props.groupName}
+        </div>
+      </div>
+      <div className="card" style={{ height: "150px" }}>
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            display: "flex",
+            padding: "15px 15px 0px 15px",
+            boxSizing: "border-box",
+            webkitBoxSizing: "border-box",
+            MozBoxSizing: "border-box",
+            top: 0,
+            width: "100%",
+            height: "100%",
+            background: `linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, .1) 50%
+    ),
+    url("${props.image}") no-repeat center center`,
+
+            backgroundSize: "cover",
+            borderRadius: `13px`,
+            color: "white",
+            flexDirection: "column",
+            justifyContent: `flex-start`,
+          }}
+        >
+          <h1 style={{ fontSize: "16px", margin: 0 }}>
+            <span style={{ marginRight: "8px" }}>
+              <FontAwesomeIcon size="lg" color="#FFFFFF" icon={faCalendarAlt} />
+            </span>
+            {text_truncate(props.eventName, 23)}
+          </h1>
+        </div>
+      </div>
+      <div style={{ height: props.gap }}></div>
+      {props.line ? (
+        <>
+          <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
+          <div style={{ height: props.gap }}></div>
+        </>
+      ) : null}
+    </div>
+  );
+};
 export const GroupShowcase = (props) => {
   return (
     <div>
