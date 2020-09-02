@@ -31,6 +31,7 @@ select,
 .navContainer,
 .profileMenu,
 .column-three,
+.column-two,
 .navButtons,
 .badgeHolder,
 .cardHero,
@@ -89,11 +90,17 @@ h2 {
   position: absolute;
   width: 100%;
   margin-top: 60px;
+  height: 100%;
 }
 
 .column-three {
   display: grid;
   grid-template-columns: 300px auto 300px;
+}
+.column-two {
+  display: grid;
+  grid-template-columns: 300px auto;
+  height: 100%;
 }
 .column-menu {
   position: absolute;
@@ -118,6 +125,10 @@ h2 {
 }
 .column-maincontent {
   padding: 20px;
+}
+.column-maincontent-nopadding {
+  padding: 0 20px 20px 20px;
+  max-width: 900px;
 }
 .heroHolder {
   display: grid;

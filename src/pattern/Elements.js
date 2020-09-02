@@ -1009,3 +1009,131 @@ export const ParagraphText = (props) => {
     </div>
   );
 };
+
+export const ThumbnailList = (props) => {
+  return (
+    <div>
+      {props.groupData.map((val, i) => {
+        return (
+          <div
+            style={{
+              display: "flex",
+              marginBottom: "15px",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                marginRight: "5px",
+              }}
+            >
+              <img
+                style={{
+                  height: "50px",
+                  borderRadius: "20%",
+                }}
+                src={val.thumbnail}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                verticalAlign: "middle",
+                textAlign: "left",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  marginBottom: "5px",
+                }}
+              >
+                {val.name}
+              </div>
+              <div
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  color: "#0B71F6",
+                }}
+              >
+                • {val.posts} new posts
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      <div
+        style={{
+          fontSize: "13px",
+          fontStyle: "italic",
+          lineHeight: 1.5,
+          color: "#7B7B7B",
+        }}
+      >
+        {props.bodyText}
+      </div>
+      <div style={{ height: props.gap }}></div>
+    </div>
+  );
+};
+
+export const LargeImageHero = (props) => {
+  return (
+    <div>
+      <div>
+        <div className="card" style={{ height: "400px" }}>
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              display: "flex",
+              padding: "0px 30px 20px 30px",
+              boxSizing: "border-box",
+              webkitBoxSizing: "border-box",
+              MozBoxSizing: "border-box",
+              top: 0,
+              width: "100%",
+              height: "100%",
+
+              background: `linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url("${props.image}") no-repeat center center`,
+
+              backgroundSize: "cover",
+              borderRadius: ` 0 0 13px 13px`,
+              color: "white",
+              flexDirection: "column",
+              justifyContent: `flex-end`,
+            }}
+          >
+            <span style={{ marginBottom: "5px" }}>
+              <FontAwesomeIcon size="lg" color="#FFFFFF" icon={faUsers} />
+            </span>
+            <h1
+              style={{
+                fontSize: "24px",
+                fontWeight: 900,
+                margin: "0 0 4px 0",
+                padding: 0,
+              }}
+            >
+              {text_truncate(props.name, 23)}
+            </h1>
+            <span style={{ fontSize: "15px", lineHeight: 1.5, opacity: 0.8 }}>
+              {text_truncate(props.description, 67)}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div style={{ height: props.gap }} />
+    </div>
+  );
+};

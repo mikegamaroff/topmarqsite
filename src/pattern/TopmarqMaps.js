@@ -32,20 +32,32 @@ class TopmarqMaps extends Component {
           MAPBOX_TOKEN
       )
       .then((res) => {
-        LatLong = res.data.features[0].bbox;
-        console.log(LatLong[1]);
-        this.setState({
-          viewport: {
-            ...this.state.viewport,
-            latitude: LatLong[1],
-            longitude: LatLong[0],
-          },
-        });
+        console.log(res.data.features);
+        LatLong = res.data.features[0].center;
+
+        if (LatLong) {
+          this.setState({
+            viewport: {
+              ...this.state.viewport,
+              latitude: LatLong[1],
+              longitude: LatLong[0],
+            },
+          });
+        } else {
+          this.setState({
+            viewport: {
+              ...this.state.viewport,
+              latitude: 40.6892494,
+              longitude: -74.0466891,
+            },
+          });
+        }
       });
   }
 
   render() {
     const { viewport } = this.state;
+
     return (
       <div>
         <div></div>

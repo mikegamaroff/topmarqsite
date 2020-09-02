@@ -203,11 +203,7 @@ class EventDetail extends Component {
                   gap={5}
                 />
 
-                <TopmarqMaps
-                  address="Detail Garage South Houston
-12503 Gulf Freeway
-Houston TX 77034"
-                />
+                <TopmarqMaps address="12503 Gulf Freeway Houston TX 77034" />
               </div>
             </div>
           </div>
