@@ -935,31 +935,37 @@ export const DetailsList = (props) => {
     alignItems: "center",
   };
   return (
-    <div style={{ color: "#858789", fontSize: "13px", fontWeight: "500" }}>
+    <div style={{ color: "#858789", fontSize: "12px", fontWeight: "500" }}>
       <div style={listHolderStyle}>
         <div style={listStyle}>
           <FontAwesomeIcon size="s" color="#606670" icon={faClock} />
         </div>
         <span>{props.date}</span>
       </div>
-      <div style={listHolderStyle}>
-        <div style={listStyle}>
-          <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />
+      {props.attending ? (
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />
+          </div>
+          <span>{props.attending} attending</span>
         </div>
-        <span>{props.attending} attending</span>
-      </div>
-      <div style={listHolderStyle}>
-        <div style={listStyle}>
-          <FontAwesomeIcon size="s" color="#606670" icon={faMapMarkerAlt} />
+      ) : null}
+      {props.location ? (
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            <FontAwesomeIcon size="s" color="#606670" icon={faMapMarkerAlt} />
+          </div>
+          <span>{props.location}</span>
         </div>
-        <span>{props.location}</span>
-      </div>
-      <div style={listHolderStyle}>
-        <div style={listStyle}>
-          <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
+      ) : null}
+      {props.classes ? (
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
+          </div>
+          <span>{props.classes} classes</span>
         </div>
-        <span>{props.classes} classes</span>
-      </div>
+      ) : null}
       {props.virtual ? (
         <div style={listHolderStyle}>
           <div style={listStyle}>
@@ -975,6 +981,15 @@ export const DetailsList = (props) => {
             <InPerson color="#606670" size={20} />
           </div>
           <span>In person</span>
+        </div>
+      ) : null}
+      {props.competitions ? (
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            {/*  <FontAwesomeIcon size="s" color="#606670" icon={faMale} /> */}
+            <Trophy id="trophy1" size={15} />
+          </div>
+          <span>{props.competitions} competitions</span>
         </div>
       ) : null}
       <div style={listHolderStyle}>
@@ -1013,7 +1028,7 @@ export const ParagraphText = (props) => {
 export const ThumbnailList = (props) => {
   return (
     <div>
-      {props.groupData.map((val, i) => {
+      {props.data.map((val, i) => {
         return (
           <div
             style={{
@@ -1057,10 +1072,46 @@ export const ThumbnailList = (props) => {
                 style={{
                   fontSize: "11px",
                   fontWeight: 500,
-                  color: "#0B71F6",
+                  color: props.myevents ? "#0B71F6" : "#66696C",
                 }}
               >
-                • {val.posts} new posts
+                {props.myevents ? <>• {val.posts} new posts</> : null}
+                {props.pastevents ? (
+                  <div style={{ display: "flex" }}>
+                    <div
+                      style={{
+                        marginRight: "15px",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span style={{ marginRight: "5px" }}>
+                        <FontAwesomeIcon
+                          size="s"
+                          color="#606670"
+                          icon={faClock}
+                        />
+                      </span>
+                      <span>Ended {val.enddate}</span>
+                    </div>
+                    <div
+                      style={{
+                        marginRight: "15px",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span style={{ marginRight: "5px" }}>
+                        <FontAwesomeIcon
+                          size="s"
+                          color="#606670"
+                          icon={faUsers}
+                        />
+                      </span>
+                      <span>{val.attendees}</span>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -1102,7 +1153,7 @@ export const LargeImageHero = (props) => {
 
               background: `linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.2) 58%,
         rgba(0, 0, 0, 1) 100%
       ),
       url("${props.image}") no-repeat center center`,
@@ -1114,6 +1165,21 @@ export const LargeImageHero = (props) => {
               justifyContent: `flex-end`,
             }}
           >
+            {props.button ? (
+              <div style={{ position: "absolute", top: 30, right: 30 }}>
+                <Button
+                  label={props.buttonLabel}
+                  submitting={false}
+                  fullwidth={false}
+                  color="#FFFFFF"
+                  disabled={false}
+                  padding={"8px 17px 8px 17px"}
+                  borderRadius={8}
+                  /* onClick={} */
+                  gradient={["#EBAE58", "#EBAE58"]}
+                />
+              </div>
+            ) : null}
             <span style={{ marginBottom: "5px" }}>
               <FontAwesomeIcon size="lg" color="#FFFFFF" icon={faUsers} />
             </span>

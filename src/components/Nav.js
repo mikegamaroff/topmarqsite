@@ -74,27 +74,32 @@ class Footer extends Component {
               </div>
             </div>
             <div className="vertical-center navButtons">
-              <div id="button">
-                <Home id="icon_home" size={26} />
-
-                <span className="navButtonBase" id="floor_home" />
-              </div>
+              <NavLink to="/home" style={{ height: "100%" }}>
+                <div id="button">
+                  <Home id="icon_home" size={26} />
+                  <span className="navButtonBase" id="floor_home" />{" "}
+                </div>
+              </NavLink>
               <div id="button">
                 <Bell id="icon_notifications" size={26} />
                 <span className="navButtonBase" id="floor_notifications" />
               </div>
-              <div id="button">
-                <Events id="icon_events" size={26} />
-                <span className="navButtonBase" id="floor_events" />
-              </div>
+              <NavLink to="/events" style={{ height: "100%" }}>
+                <div id="button">
+                  <Events id="icon_events" size={26} />
+                  <span className="navButtonBase" id="floor_events" />{" "}
+                </div>
+              </NavLink>
               <div id="button">
                 <Forum id="icon_forum" size={26} />
                 <span className="navButtonBase" id="floor_forum" />
               </div>
-              <div id="button">
-                <Groups id="icon_groups" size={26} />
-                <span className="navButtonBase" id="floor_groups" />
-              </div>
+              <NavLink to="/groups" style={{ height: "100%" }}>
+                <div id="button">
+                  <Groups id="icon_groups" size={26} />{" "}
+                  <span className="navButtonBase" id="floor_groups" />
+                </div>
+              </NavLink>
             </div>
             <div className="profileMenu vertical-center align-right">
               <div style={{ padding: "0px 7px 0px 0px" }}>

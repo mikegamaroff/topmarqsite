@@ -43,7 +43,7 @@ export const EventCard = (props) => {
           <div style={{ position: "absolute", top: "10px", right: "10px" }}>
             <img src="images/chevron.svg" />
           </div>
-          <h1 style={{ fontSize: "16px", margin: 0 }}>
+          <h1 style={{ fontSize: "14px", margin: 0 }}>
             <span style={{ marginRight: "8px" }}>
               <FontAwesomeIcon size="lg" color="#FFFFFF" icon={faCalendarAlt} />
             </span>
@@ -64,7 +64,7 @@ export const EventCard = (props) => {
           }}
         >
           <h3
-            style={{ fontSize: "13px", fontWeight: 100, marginRight: "16px" }}
+            style={{ fontSize: "11px", fontWeight: 100, marginRight: "16px" }}
           >
             <span style={{ marginRight: "5px" }}>
               <FontAwesomeIcon size="s" color="#606670" icon={faClock} />
@@ -72,7 +72,7 @@ export const EventCard = (props) => {
             {props.date}
           </h3>
           <h3
-            style={{ fontSize: "13px", fontWeight: 100, marginRight: "16px" }}
+            style={{ fontSize: "11px", fontWeight: 100, marginRight: "16px" }}
           >
             <span style={{ marginRight: "5px" }}>
               <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />

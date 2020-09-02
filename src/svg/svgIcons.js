@@ -249,7 +249,7 @@ export const Trophy = (props) => {
   } else if (props.award === "bronze") {
     color = "#B76D42";
   } else {
-    color = "#F11A1A";
+    color = "#606670";
   }
   return (
     <svg

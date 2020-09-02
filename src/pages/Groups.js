@@ -111,7 +111,7 @@ class Groups extends Component {
                 much more…
               </div>
               <h2>Your Groups</h2>
-              <ThumbnailList groupData={groupData} />
+              <ThumbnailList data={groupData} myevents={true} />
             </div>
             <div className="column-maincontent-nopadding">
               <div style={{ marginBottom: "50px" }}>

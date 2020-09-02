@@ -6,6 +6,7 @@ import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import Events from "./pages/Events";
 import Groups from "./pages/Groups";
+import GroupDetail from "./pages/GroupDetail";
 import EventDetail from "./pages/EventDetail";
 import Upgrade from "./pages/Upgrade";
 const myHistory = createBrowserHistory();
@@ -21,6 +22,11 @@ export class App extends Component {
                 <Route exact path="/home" render={() => <Home />} />
                 <Route exact path="/events" render={() => <Events />} />
                 <Route exact path="/groups" render={() => <Groups />} />
+                <Route
+                  exact
+                  path="/groupdetail"
+                  render={() => <GroupDetail />}
+                />
                 <Route
                   exact
                   path="/eventdetail"
