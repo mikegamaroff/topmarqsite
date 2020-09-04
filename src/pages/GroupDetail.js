@@ -292,6 +292,17 @@ class GroupDetail extends Component {
                   placeholder="Add Comment"
                   submitButton={this.sendSearch}
                   handleChange={this.handleChange}
+                  open={true}
+                  postTitle={"Black charger with cool painted wheels"}
+                  postImage={"images/jeep.jpg"}
+                  postDescription={
+                    "All backed out charger with red/white wall tires that added a really cool accent to the look."
+                  }
+                  postOwner={"Tom Russo"}
+                  clock={true}
+                  placeholder="Add Comment"
+                  award={"gold"}
+                  submitImg="/images/send.svg"
                 />
               </div>
             </div>

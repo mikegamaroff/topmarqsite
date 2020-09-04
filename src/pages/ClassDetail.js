@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TextButton } from "../pattern/forms/Button";
 
-import {
-  faClock,
-  faExclamationCircle,
-  faVideoSlash,
-} from "@fortawesome/free-solid-svg-icons";
 import Nav from "../components/Nav";
 import { EventTitleCard } from "../pattern/Cards";
 import { DiscussionBox } from "../pattern/Sections";
@@ -119,6 +112,7 @@ class ClassDetail extends Component {
                   buttonType="subscribe"
                   buttonLabel="Subscribe"
                   gap={25}
+                  onClick={() => alert("Class Detail Subscribe")}
                 />
                 <AddThread
                   submitButton={this.sendSearch}

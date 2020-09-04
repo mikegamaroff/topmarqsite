@@ -598,9 +598,7 @@ export const EventClassPost = (props) => {
             paddingBottom: "15px",
             borderTop: "solid 1px #D8D8D8",
             borderBottom: "solid 1px #D8D8D8",
-            background: `
-url("${props.image}") no-repeat center center`,
-
+            background: `url("${props.image}") no-repeat center center`,
             backgroundSize: "cover",
             position: "relative",
             color: "white",
@@ -664,7 +662,18 @@ export const EventClass = (props) => {
             zIndex: 3,
           }}
         >
-          <img src="images/optionsDots.svg" />
+          <SelectButton
+            label={"Subscribe"}
+            submitting={false}
+            fullwidth={false}
+            color="#3E4347"
+            disabled={false}
+            checked={true}
+            padding={"12px 15px 12px 40px"}
+            borderRadius={8}
+            onClick={props.onClick}
+            gradient={["#ECEDF1", "#ECEDF5"]}
+          />
         </div>
         <div style={{ padding: "15px 15px 15px 15px" }}>
           <h1 style={{ fontSize: "16px", margin: 0 }}>
@@ -1298,10 +1307,10 @@ export const MediumImageHero = (props) => {
                     fullwidth={false}
                     color="#3E4347"
                     disabled={false}
-                    checked={false}
+                    checked={true}
                     padding={"12px 15px 12px 40px"}
                     borderRadius={8}
-                    /* onClick={} */
+                    onClick={props.onClick}
                     gradient={["#ECEDF1", "#ECEDF5"]}
                   />
                 ) : null}

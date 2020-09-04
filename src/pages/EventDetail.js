@@ -135,6 +135,7 @@ class EventDetail extends Component {
                   entries={15}
                   votes={21}
                   views={423}
+                  onClick={() => alert("Class Detail Subscribe")}
                 />
               </div>
               <div>
@@ -150,6 +151,7 @@ class EventDetail extends Component {
                   entries={12}
                   votes={15}
                   views={523}
+                  onClick={() => alert("Class Detail Subscribe")}
                 />
               </div>
             </div>

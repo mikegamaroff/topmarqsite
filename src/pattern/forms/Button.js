@@ -77,12 +77,14 @@ export const TextButton = (props) => {
 };
 
 export const SelectButton = (props) => {
-  const [count = 3, setCount] = useState(0);
+  const [on, setCount] = useState(props.checked);
 
-  useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You clicked ${count} times`;
-  });
+  const onSubmit = () => {
+    setCount(!on);
+    props.onClick();
+    console.log(on);
+  };
+
   return (
     <div
       style={{
@@ -92,9 +94,9 @@ export const SelectButton = (props) => {
       }}
     >
       <button
-        onClick={() => setCount(count + 1)}
+        onClick={() => onSubmit()}
         disabled={props.disabled || props.submitting}
-        onClick={props.onClick}
+        //  onClick={props.onClick}
         // className="testInput"
         style={{
           padding: props.padding,
@@ -139,7 +141,7 @@ export const SelectButton = (props) => {
             justifyContent: "center",
           }}
         >
-          {!props.checked ? (
+          {on ? (
             <div
               style={{
                 borderRadius: "100%",

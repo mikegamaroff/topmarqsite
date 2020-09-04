@@ -155,6 +155,9 @@ class Home extends Component {
                 placeholder="Add a thread"
                 userID={20}
                 gap={25}
+                //  buttonType="post"
+                submitImg="/images/send.svg"
+                gap={25}
               />
               <Post
                 profileThumbnail="images/profPic.png"
@@ -164,6 +167,17 @@ class Home extends Component {
                 placeholder="Add Comment"
                 submitButton={this.sendSearch}
                 handleChange={this.handleChange}
+                open={true}
+                postTitle={"Mercedes Benz backs into Ferrari 458 Special"}
+                postImage={"images/jeep.jpg"}
+                postDescription={
+                  "Looks like this will be a pretty expensive visit to the car show!!"
+                }
+                postOwner={"Tom Russo"}
+                clock={true}
+                placeholder="Add Comment"
+                award={"gold"}
+                submitImg="/images/send.svg"
               />
             </div>
             <div className="margin-right">
