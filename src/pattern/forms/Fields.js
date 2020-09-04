@@ -7,7 +7,11 @@ export const Input = (props) => {
     <div
       className="fieldHolder"
       style={{
-        width: props.submitButton ? `calc(${props.width} - 35px)` : props.width,
+        width: props.submitButton
+          ? props.buttonType === "post"
+            ? `calc(${props.width} - 60px)`
+            : `calc(${props.width} - 35px)`
+          : props.width,
         height: props.height,
         /*     marginTop: props.gap, */
         marginBottom: props.gap,
@@ -39,7 +43,14 @@ export const Input = (props) => {
       />
 
       {props.submitButton ? (
-        <div className="submitButton cursor" onClick={props.submitButton}>
+        <div
+          className={
+            props.buttonType === "post"
+              ? "postButton cursor"
+              : "submitButton cursor"
+          }
+          onClick={props.submitButton}
+        >
           <img src={props.submitImg} />
         </div>
       ) : null}

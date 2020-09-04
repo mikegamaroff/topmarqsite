@@ -4,7 +4,10 @@ html {
   background-image: url("/images/carbg.png");
   background-repeat: repeat;
 }
-
+.car-background {
+  background-image: url("/images/carbg.png");
+  background-repeat: repeat;
+}
 html,
 body,
 input,

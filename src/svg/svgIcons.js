@@ -126,6 +126,33 @@ export const Groups = (props) => (
   </svg>
 );
 
+export const Chevron = (props) => (
+  <svg
+    width={props.size ? props.size : 30}
+    height={props.size ? props.size : 30}
+    viewBox="0 0 10 17"
+    version="1.1"
+    fill="#C6C6C6"
+    fill-rule="evenodd"
+    transform={`scale(${props.scale})`}
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ width: props.size, display: "flex", alignItems: "center" }}
+  >
+    <title>Plus</title>
+
+    <g
+      id="Class-Detail"
+      transform="translate(-30.000000, -98.000000)"
+      fill="#333333"
+    >
+      <path
+        d="M30.2434599,107.077008 C29.9188467,106.758059 29.9188467,106.242769 30.2434599,105.922992 L37.9476124,98.3460807 C38.4162207,97.8846398 39.1786454,97.8846398 39.648086,98.3460807 C40.1166943,98.8075217 40.1166943,99.5564314 39.648086,100.017872 L33.0576064,106.500414 L39.648086,112.981299 C40.1166943,113.443569 40.1166943,114.192478 39.648086,114.653919 C39.1786454,115.11536 38.4162207,115.11536 37.9476124,114.653919 L30.2434599,107.077008 Z"
+        id="Chevron"
+      ></path>
+    </g>
+  </svg>
+);
+
 export const PlusCircle = (props) => (
   <svg
     width={props.size ? props.size : 30}

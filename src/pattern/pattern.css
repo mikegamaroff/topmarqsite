@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
-.submitButton {
+.submitButton,
+.postButton {
   -moz-transition: 0.1s ease-in-out;
   -webkit-transition: 0.1s ease-in-out;
   -ms-transition: 0.1s ease-in-out;
@@ -35,13 +36,24 @@
 
   height: 100%;
 }
-.submitButton:hover {
+.submitButton:hover,
+.postButton:hover {
   opacity: 0.5;
 }
 .submitButton img {
   height: 100%;
   width: 22px;
 }
+.postButton {
+  position: absolute;
+  right: -53px;
+  top: 0;
+  height: 100%;
+}
+.postButton img {
+  height: 100%;
+}
+
 .xIcon {
   position: absolute;
   right: 8px;

@@ -56,6 +56,7 @@ class Footer extends Component {
                   color="#545860"
                   width="100%"
                   height="30px"
+                  buttonType="arrow"
                   error={false}
                   validated={false}
                   onChange={this.handleChange}

@@ -59,14 +59,12 @@ const groupData = [
   {
     name: "Clear Lake Cars & Coffee",
     thumbnail: "images/all_cars1.jpeg",
-    posts: 12,
     enddate: "Aug 18",
     attendees: 412,
   },
   {
     name: "Cars, Trucks, And Bikes Meet",
     thumbnail: "images/all_cars2.jpeg",
-    posts: 24,
     enddate: "Jul 12",
     attendees: 132,
   },
@@ -151,6 +149,7 @@ class GroupDetail extends Component {
                   image="/images/all_cars5.jpeg"
                   button={true}
                   buttonLabel="Join Group"
+                  buttonType="regular"
                   gap={25}
                 />
                 <div

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faMapMarkerAlt,
   faExclamationCircle,
@@ -77,6 +78,7 @@ class EventDetail extends Component {
                 eventName="August Clear Lake Cars and Coffee Meet"
                 image="/images/all_cars2.jpeg"
                 gap={18}
+                eventOwnerTitle={true}
               />
               <Button
                 label="Attend"

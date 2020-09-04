@@ -160,6 +160,7 @@ class Home extends Component {
                 profileThumbnail="images/profPic.png"
                 userID={20}
                 gap={25}
+                clock={true}
                 placeholder="Add Comment"
                 submitButton={this.sendSearch}
                 handleChange={this.handleChange}

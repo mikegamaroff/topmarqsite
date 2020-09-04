@@ -109,28 +109,30 @@ export const EventCard = (props) => {
 export const EventTitleCard = (props) => {
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <img
+      {props.eventOwnerTitle ? (
+        <div
           style={{
-            borderRadius: "100%",
-            margin: "7px",
-            height: "30px",
-            border: "solid 2px #D2D2D2",
+            display: "flex",
+            width: "100%",
+            justifyContent: "center",
+            alignItems: "center",
           }}
-          src={"images/profPic.png"}
-        />
+        >
+          <img
+            style={{
+              borderRadius: "100%",
+              margin: "7px",
+              height: "30px",
+              border: "solid 2px #D2D2D2",
+            }}
+            src={"images/profPic.png"}
+          />
 
-        <div style={{ width: "100%", fontSize: "14px", fontWeight: 900 }}>
-          {props.groupName}
+          <div style={{ width: "100%", fontSize: "14px", fontWeight: 900 }}>
+            {props.groupName}
+          </div>
         </div>
-      </div>
+      ) : null}
       <div className="card" style={{ height: "150px" }}>
         <div
           style={{
