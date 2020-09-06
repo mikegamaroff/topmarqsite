@@ -1,26 +1,18 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TextButton } from "../pattern/forms/Button";
 import { PlusCircle } from "../svg/svgIcons";
-import {
-  faClock,
-  faExclamationCircle,
-} from "@fortawesome/free-solid-svg-icons";
 import Nav from "../components/Nav";
-import { EventCard } from "../pattern/Cards";
+import { Button } from "../pattern/forms/Button";
 import {
   DetailsList,
   ThumbnailList,
-  LargeImageHero,
+  MediumImageHero,
   Post,
 } from "../pattern/Elements";
-import TopmarqMaps from "../pattern/TopmarqMaps";
-
-import { Button } from "../pattern/forms/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { TextButton } from "../pattern/forms/Button";
 import Footer from "../components/Footer";
-import "../Calendar.css";
-//import moment from "moment";
-
+import { faClock, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { EventCard } from "../pattern/Cards";
 const latestGroups = [
   // "unjoined" = user hasn't joined a group
   // "joined" = user already joined
@@ -55,20 +47,6 @@ const latestGroups = [
   },
 ];
 
-const groupData = [
-  {
-    name: "Clear Lake Cars & Coffee",
-    thumbnail: "images/all_cars1.jpeg",
-    enddate: "Aug 18",
-    attendees: 412,
-  },
-  {
-    name: "Cars, Trucks, And Bikes Meet",
-    thumbnail: "images/all_cars2.jpeg",
-    enddate: "Jul 12",
-    attendees: 132,
-  },
-];
 const groupMembers = [
   {
     image: "images/profPic.png",
@@ -91,6 +69,19 @@ const groupMembers = [
     userID: 1,
   },
 ];
+const groupData = [
+  {
+    name: "Clear Lake Cars & Coffee",
+    thumbnail: "images/all_cars1.jpeg",
+    posts: 12,
+  },
+  {
+    name: "Clear Lake Cars & Coffee",
+    thumbnail: "images/all_cars2.jpeg",
+    posts: 24,
+  },
+];
+
 class GroupDetail extends Component {
   state = {
     signup: true,
@@ -103,9 +94,6 @@ class GroupDetail extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  };
-  onChange = (e) => {
-    console.log(e);
   };
 
   render() {
@@ -121,6 +109,7 @@ class GroupDetail extends Component {
                 <TextButton
                   label={"Create event"}
                   locked={true}
+                  gap={15}
                   icon={<PlusCircle size={15} />}
                 />
               </div>
@@ -143,26 +132,66 @@ class GroupDetail extends Component {
             </div>
             <div className="column-maincontent-nopadding">
               <div style={{ marginBottom: "50px" }}>
-                <LargeImageHero
+                <MediumImageHero
                   name="Clear Lake Cars and Coffee"
                   description="Come and have coffee with cars"
                   image="/images/all_cars5.jpeg"
                   button={true}
-                  buttonLabel="Join Group"
                   buttonType="regular"
+                  buttonLabel="Attend"
                   gap={25}
+                  clock={false}
+                  onClick={() => alert("Class Detail Subscribe")}
+                  icon={
+                    <FontAwesomeIcon size="s" color="#FFFFFF" icon={faUsers} />
+                  }
                 />
+                <div className="level1-content">
+                  <div
+                    className="align-right"
+                    style={{
+                      minWidth: "140px",
+                    }}
+                  >
+                    <TextButton
+                      label={"Create event"}
+                      locked={true}
+                      gap={10}
+                      icon={<PlusCircle size={15} />}
+                    />
+                  </div>
+                  <div
+                    className="graycard"
+                    style={{
+                      width: "100%",
+                      padding: "15px",
+                      fontSize: "12.5px",
+                      lineHeight: "1.5",
+                      fontStyle: "italic",
+                      marginBottom: 25,
+                      display: "flex",
+
+                      alignItems: "center",
+                    }}
+                  >
+                    Join a Group, find enthusiasts in your area, attend events
+                    and much more…
+                  </div>
+                </div>
                 <div
-                  className="card"
+                  className="card group-detail-card"
                   style={{
                     padding: "30px",
                     display: "grid",
                     gridGap: "60px",
-                    gridTemplateColumns: "1.7fr 1fr ",
                     marginBottom: "30px",
                   }}
                 >
-                  <div>
+                  <div
+                    style={{
+                      minWidth: "25vw",
+                    }}
+                  >
                     <h3
                       style={{
                         margin: "0 0 10px 0",
@@ -196,42 +225,49 @@ class GroupDetail extends Component {
                       gradient={["#EBAE58", "#EBAE58"]}
                     />
                   </div>
-                  <div>
+                  <div
+                    style={{
+                      display: "flex",
+
+                      flexDirection: "column",
+                      position: "relative",
+                      width: "100%",
+                    }}
+                  >
                     <div
                       style={{
                         display: "flex",
+                        flexWrap: "wrap",
                         justifyContent: "space-between",
                       }}
                     >
-                      <h2 style={{ margin: 0 }}>Members</h2>
-                      <div style={{}}>
+                      <h2 style={{ margin: 0 }}>
                         <span style={{ marginRight: "5px" }}>
                           <FontAwesomeIcon
-                            size="xs"
+                            size="s"
                             color="#606670"
-                            icon={faClock}
+                            icon={faUsers}
                           />
                         </span>
-                        <span style={{ fontSize: "13px", color: "#66696C" }}>
-                          312
-                        </span>
-                      </div>
+                        234 Members
+                      </h2>
                     </div>
                     <div
                       id="groupMembers"
                       style={{
                         padding: "15px 0 15px 0",
-                        display: "grid",
-                        gridGap: "10px",
-                        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr ",
+                        display: "flex",
                       }}
                     >
                       {groupMembers.map((val, i) => {
                         return (
                           <div
                             style={{
-                              width: "50px",
-                              height: "50px",
+                              width: "11vw",
+                              height: "11vw",
+                              maxWidth: "40px",
+                              maxHeight: "40px",
+                              marginRight: "10px",
                               background: `url("${val.image}") no-repeat center center`,
                               backgroundSize: "cover",
                               borderRadius: `100%`,
@@ -253,10 +289,10 @@ class GroupDetail extends Component {
                 </div>
                 <h2>Active events</h2>
                 <div
+                  className="classPostThree"
                   style={{
                     display: "grid",
                     gridGap: "20px",
-                    gridTemplateColumns: "1fr 1fr 1fr",
                   }}
                 >
                   <EventCard
@@ -306,8 +342,14 @@ class GroupDetail extends Component {
                 />
               </div>
             </div>
+            <div className="margin-right">
+              {/* /////// RIGHT COLUMN \\\\\\\ */}
+              <div className="level3-content">
+                {/*             {marginRightContent(this.state.date, this.onChange)} */}
+              </div>
+            </div>
           </div>
-          <div>
+          <div className="footer">
             <Footer />
           </div>
         </div>

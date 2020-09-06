@@ -9,6 +9,8 @@ import Groups from "./pages/Groups";
 import GroupDetail from "./pages/GroupDetail";
 import EventDetail from "./pages/EventDetail";
 import ClassDetail from "./pages/ClassDetail";
+import Scaffold from "./pages/Scaffold";
+
 import Upgrade from "./pages/Upgrade";
 const myHistory = createBrowserHistory();
 export class App extends Component {
@@ -23,6 +25,7 @@ export class App extends Component {
                 <Route exact path="/home" render={() => <Home />} />
                 <Route exact path="/events" render={() => <Events />} />
                 <Route exact path="/groups" render={() => <Groups />} />
+                <Route exact path="/scaffold" render={() => <Scaffold />} />
                 <Route
                   exact
                   path="/classdetail"

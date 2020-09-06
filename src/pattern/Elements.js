@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "./forms/Fields";
 import { Button, SelectButton } from "./forms/Button";
-
+import { TweenLite, Power4 } from "gsap";
 import {
   PostUpVote,
   PostComments,
@@ -555,7 +555,11 @@ export const UserTrophies = (props) => {
           }}
         >
           <span>
-            <Trophy award="gold" id="trophy1" size={15} />
+            <Trophy
+              award="gold"
+              id={"trophy1_" + Math.floor(Math.random() * 10)}
+              size={15}
+            />
           </span>
           <span style={{ margin: "0 5px 0 3px" }}>{props.gold}</span>
         </div>
@@ -563,7 +567,11 @@ export const UserTrophies = (props) => {
       {props.silver ? (
         <div style={{ display: "flex", alignItems: "center" }}>
           <span>
-            <Trophy award="silver" id="trophy2" size={15} />
+            <Trophy
+              award="silver"
+              id={"trophy2_" + Math.floor(Math.random() * 10)}
+              size={15}
+            />
           </span>
           <span style={{ margin: "0 5px 0 3px" }}>{props.silver}</span>
         </div>
@@ -571,7 +579,11 @@ export const UserTrophies = (props) => {
       {props.bronze ? (
         <div style={{ display: "flex", alignItems: "center" }}>
           <span>
-            <Trophy award="bronze" id="trophy3" size={15} />
+            <Trophy
+              award="bronze"
+              id={"trophy3_" + Math.floor(Math.random() * 10)}
+              size={15}
+            />
           </span>
           <span style={{ margin: "0 5px 0 3px" }}>{props.bronze}</span>
         </div>
@@ -585,13 +597,13 @@ export const EventClassPost = (props) => {
     <div>
       <div>
         <div
+          className="eventClassPostImage"
           style={{
             display: "flex",
             padding: "0px 15px 0px 15px",
             boxSizing: "border-box",
             webkitBoxSizing: "border-box",
             MozBoxSizing: "border-box",
-            height: "250px",
             width: "100%",
             fontSize: "13px",
             lineHeight: "1.5",
@@ -655,12 +667,8 @@ export const EventClass = (props) => {
     <div>
       <div className="card" style={{ width: "100%", padding: "0px" }}>
         <div
-          style={{
-            position: "absolute",
-            top: "20px",
-            right: "18px",
-            zIndex: 3,
-          }}
+          className="classSubscribeButton"
+          style={{ display: "flex", justifyContent: "flex-end" }}
         >
           <SelectButton
             label={"Subscribe"}
@@ -669,26 +677,34 @@ export const EventClass = (props) => {
             color="#3E4347"
             disabled={false}
             checked={true}
-            padding={"12px 15px 12px 40px"}
+            padding={"8px 15px 8px 40px"}
             borderRadius={8}
             onClick={props.onClick}
             gradient={["#ECEDF1", "#ECEDF5"]}
           />
         </div>
         <div style={{ padding: "15px 15px 15px 15px" }}>
-          <h1 style={{ fontSize: "16px", margin: 0 }}>
+          <h1 className="shortenedText" style={{ fontSize: "16px", margin: 0 }}>
             {text_truncate(props.name, props.nameLimit)}
           </h1>
-          <p style={{ fontSize: "12px", opacity: 0.8, marginBottom: "3px" }}>
+          <p
+            className="shortenedText"
+            style={{
+              fontSize: "12px",
+              opacity: 0.8,
+              marginBottom: "3px",
+            }}
+          >
             {text_truncate(props.description, props.descriptionLimit)}
           </p>
           <CountdownClock />
         </div>
         <div
+          className="classPostThree"
           style={{
             display: "grid",
             width: "100%",
-            gridTemplateColumns: "1fr 1fr 1fr",
+
             gridGap: "3px",
           }}
         >
@@ -758,6 +774,7 @@ export const EventClass = (props) => {
               </div>
             </div>
             <div
+              className="shortenedTextMobile"
               style={{
                 marginTop: "13px",
                 fontStyle: "italic",
@@ -856,7 +873,11 @@ export const Leaderboard = (props) => {
             justifyContent: "center",
           }}
         >
-          <Trophy award="gold" id="trophy1" size={20} />
+          <Trophy
+            award="gold"
+            id={"trophy1_" + Math.floor(Math.random() * 10)}
+            size={20}
+          />
         </div>
         <div
           style={{
@@ -865,7 +886,11 @@ export const Leaderboard = (props) => {
             justifyContent: "center",
           }}
         >
-          <Trophy award="silver" id="trophy2" size={20} />
+          <Trophy
+            award="silver"
+            id={"trophy2_" + Math.floor(Math.random() * 10)}
+            size={20}
+          />
         </div>
         <div
           style={{
@@ -874,7 +899,11 @@ export const Leaderboard = (props) => {
             justifyContent: "center",
           }}
         >
-          <Trophy award="bronze" id="trophy3" size={20} />
+          <Trophy
+            award="bronze"
+            id={"trophy3_" + Math.floor(Math.random() * 10)}
+            size={20}
+          />
         </div>
       </div>
 
@@ -970,82 +999,100 @@ export const Leaderboard = (props) => {
 
 export const DetailsList = (props) => {
   const listStyle = {
-    marginRight: "10px",
+    marginRight: "6px",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: `${props.stack === "horizontal" ? "flex-end" : "center"}`,
 
     width: "20px",
   };
   const listHolderStyle = {
     display: "flex",
-    paddingBottom: "10px",
+    paddingBottom: props.stack === "horizontal" ? "10px" : "10px",
     alignItems: "center",
+    borderRadius: 8,
+    marginRight: "12px",
   };
   return (
-    <div style={{ color: "#858789", fontSize: "12px", fontWeight: "500" }}>
-      <div style={listHolderStyle}>
-        <div style={listStyle}>
-          <FontAwesomeIcon size="s" color="#606670" icon={faClock} />
+    <>
+      <div
+        style={{
+          color: "#858789",
+          fontSize: "12px",
+          fontWeight: "500",
+          flexWrap: "wrap",
+
+          display: `${props.stack === "horizontal" ? "flex" : "block"}`,
+        }}
+      >
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            <FontAwesomeIcon size="s" color="#606670" icon={faClock} />
+          </div>
+          <span>{props.date}</span>
         </div>
-        <span>{props.date}</span>
+        {props.attending ? (
+          <div style={listHolderStyle}>
+            <div style={listStyle}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />
+            </div>
+            <span>{props.attending} attending</span>
+          </div>
+        ) : null}
+        {props.location ? (
+          <div style={listHolderStyle}>
+            <div style={listStyle}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faMapMarkerAlt} />
+            </div>
+            <span>{props.location}</span>
+          </div>
+        ) : null}
+        {props.classes ? (
+          <div style={listHolderStyle}>
+            <div style={listStyle}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
+            </div>
+            <span>{props.classes} classes</span>
+          </div>
+        ) : null}
+        {props.virtual ? (
+          <div style={listHolderStyle}>
+            <div style={listStyle}>
+              <FontAwesomeIcon size="s" color="#606670" icon={faLaptop} />
+            </div>
+            <span>Virtual</span>
+          </div>
+        ) : null}
+        {props.inPerson ? (
+          <div style={listHolderStyle}>
+            <div style={listStyle}>
+              {/*  <FontAwesomeIcon size="s" color="#606670" icon={faMale} /> */}
+              <InPerson color="#606670" size={20} />
+            </div>
+            <span>In person</span>
+          </div>
+        ) : null}
+        {props.competitions ? (
+          <div style={listHolderStyle}>
+            <div style={listStyle}>
+              {/*  <FontAwesomeIcon size="s" color="#606670" icon={faMale} /> */}
+              <Trophy award="silver" id="23984729384" size={15} />
+            </div>
+            <span>{props.competitions} competitions</span>
+          </div>
+        ) : null}
+        <div style={listHolderStyle}>
+          <div style={listStyle}>
+            <FontAwesomeIcon
+              size="s"
+              color="#606670"
+              icon={faExternalLinkAlt}
+            />
+          </div>
+          <span>{props.link}</span>
+        </div>
       </div>
-      {props.attending ? (
-        <div style={listHolderStyle}>
-          <div style={listStyle}>
-            <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />
-          </div>
-          <span>{props.attending} attending</span>
-        </div>
-      ) : null}
-      {props.location ? (
-        <div style={listHolderStyle}>
-          <div style={listStyle}>
-            <FontAwesomeIcon size="s" color="#606670" icon={faMapMarkerAlt} />
-          </div>
-          <span>{props.location}</span>
-        </div>
-      ) : null}
-      {props.classes ? (
-        <div style={listHolderStyle}>
-          <div style={listStyle}>
-            <FontAwesomeIcon size="s" color="#606670" icon={faThList} />
-          </div>
-          <span>{props.classes} classes</span>
-        </div>
-      ) : null}
-      {props.virtual ? (
-        <div style={listHolderStyle}>
-          <div style={listStyle}>
-            <FontAwesomeIcon size="s" color="#606670" icon={faLaptop} />
-          </div>
-          <span>Virtual</span>
-        </div>
-      ) : null}
-      {props.inPerson ? (
-        <div style={listHolderStyle}>
-          <div style={listStyle}>
-            {/*  <FontAwesomeIcon size="s" color="#606670" icon={faMale} /> */}
-            <InPerson color="#606670" size={20} />
-          </div>
-          <span>In person</span>
-        </div>
-      ) : null}
-      {props.competitions ? (
-        <div style={listHolderStyle}>
-          <div style={listStyle}>
-            {/*  <FontAwesomeIcon size="s" color="#606670" icon={faMale} /> */}
-            <Trophy id="trophy1" size={15} />
-          </div>
-          <span>{props.competitions} competitions</span>
-        </div>
-      ) : null}
-      <div style={listHolderStyle}>
-        <div style={listStyle}>
-          <FontAwesomeIcon size="s" color="#606670" icon={faExternalLinkAlt} />
-        </div>
-        <span>{props.link}</span>
-      </div>
-    </div>
+      <div style={{ height: props.gap }}></div>
+    </>
   );
 };
 export const ParagraphText = (props) => {
@@ -1317,24 +1364,131 @@ export const MediumImageHero = (props) => {
               </div>
             ) : null}
 
+            {/*             <h1
+              style={{
+                fontSize: "24px",
+                fontWeight: 900,
+                margin: "0 0 4px 0",
+                padding: 0,
+                display: "flex",
+              }}
+            >
+              {props.icon ? (
+                <div style={{ marginRight: "8px" }}>{props.icon}</div>
+              ) : null}
+
+              {props.eventName}
+            </h1>
+ */}
             <h1
               style={{
                 fontSize: "24px",
                 fontWeight: 900,
                 margin: "0 0 4px 0",
                 padding: 0,
+                display: "flex",
               }}
             >
+              {props.icon ? (
+                <div style={{ marginRight: "8px" }}>{props.icon}</div>
+              ) : null}
               {text_truncate(props.name, 40)}
             </h1>
             <span style={{ fontSize: "15px", lineHeight: 1.5, opacity: 0.8 }}>
               {text_truncate(props.description, 100)}
             </span>
-            <CountdownClock />
+            {props.clock ? <CountdownClock /> : null}
           </div>
         </div>
       </div>
       <div style={{ height: props.gap }} />
+    </div>
+  );
+};
+
+export const CollapsibleText = (props) => {
+  const [open, setOpen] = useState(props.open);
+  const [disabled, buttonDisable] = useState(false);
+  /*   TweenLite.to(document.getElementById("textBox"), 0.5, {
+    scaleY: 0,
+    ease: Power4.easeOut,
+  });
+ */
+
+  const disableButton = () => {
+    buttonDisable(false);
+  };
+
+  const onSubmit = () => {
+    console.log(open);
+    buttonDisable(true);
+
+    setOpen(!open);
+
+    TweenLite.fromTo(
+      document.getElementById("textBox"),
+      props.speedInSeconds,
+      {
+        css: { height: open ? "auto" : 0 },
+        delay: 0,
+        ease: Power4.easeOut,
+      },
+      {
+        css: { height: open ? 0 : "auto" },
+        delay: 0,
+        onComplete: disableButton,
+        ease: Power4.easeOut,
+      }
+    );
+
+    TweenLite.to(document.getElementById("chevron"), props.speedInSeconds, {
+      rotation: open ? 0 : -180,
+      transformOrigin: "center 55%",
+      delay: 0,
+      ease: Power4.easeOut,
+    });
+  };
+
+  return (
+    <div style={{}}>
+      <div
+        className="card cardHover"
+        style={{
+          marginBottom: "10px",
+          padding: "10px",
+          fontSize: "16px",
+          fontWeight: 600,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+        disabled={disabled}
+        onClick={() => onSubmit()}
+      >
+        {props.label}
+        <div id="chevron" style={{ marginRight: "10px" }}>
+          <img src="images/chevronUp.svg" style={{ width: "20px" }} />
+        </div>
+      </div>
+
+      <div
+        id="textBox"
+        style={{
+          height: 0,
+          overflowY: "hidden",
+          display: "block",
+        }}
+      >
+        <div
+          style={{
+            height: "100%",
+            padding: "3px",
+          }}
+        >
+          {props.content}
+        </div>
+      </div>
+      <div style={{ height: props.gap }}></div>
     </div>
   );
 };

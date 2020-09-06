@@ -87,6 +87,23 @@ const leaderboardData = [
   },
 ];
 
+const marginRightContent = (
+  <>
+    <h2>Groups</h2>
+    <GroupShowcase
+      name="Mustangs"
+      description="Connect with other Mustang lovers and join like-minded groups"
+      date="Jul 16 - Aug 14"
+      attending={52}
+      image="/images/jeep.jpg"
+      gap={25}
+    />
+    <h2>Leaderboard</h2>
+    <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
+    <Leaderboard leaderboardData={leaderboardData} />
+  </>
+);
+
 class Home extends Component {
   state = {
     signup: true,
@@ -125,6 +142,7 @@ class Home extends Component {
                 <TextButton
                   label={"Create event"}
                   locked={true}
+                  gap={15}
                   icon={<PlusCircle size={15} />}
                 />
               </div>
@@ -145,8 +163,39 @@ class Home extends Component {
                 image="/images/all_cars4.jpeg"
                 gap={25}
               />
+
+              <div className="level2-content">{marginRightContent}</div>
             </div>
             <div className="column-maincontent">
+              <div className="level1-content">
+                <h2>Active Events</h2>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gridGap: "20px",
+                  }}
+                >
+                  <EventCard
+                    name="Exotic Foreign Show Virtual"
+                    description="All Classics (up to 1974) - Best Background Story"
+                    date="Jul 16 - Aug 14"
+                    attending={52}
+                    image="/images/all_cars2.jpeg"
+                    gap={25}
+                    sponsored={true}
+                  />
+                  <EventCard
+                    name="Classic Car Show Virtual"
+                    description="All Classics (up to 1974) - Best Background Story"
+                    date="Jul 16 - Aug 14"
+                    attending={52}
+                    image="/images/all_cars4.jpeg"
+                    gap={25}
+                  />
+                </div>
+              </div>
+              <h2>Popular threads</h2>
               <PopularThreads popularThreadList={popularThreadList} />
               <AddThread
                 submitButton={this.sendSearch}
@@ -181,21 +230,10 @@ class Home extends Component {
               />
             </div>
             <div className="margin-right">
-              <h2>Groups</h2>
-              <GroupShowcase
-                name="Mustangs"
-                description="Connect with other Mustang lovers and join like-minded groups"
-                date="Jul 16 - Aug 14"
-                attending={52}
-                image="/images/jeep.jpg"
-                gap={25}
-              />
-              <h2>Leaderboard</h2>
-              <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
-              <Leaderboard leaderboardData={leaderboardData} />
+              <div className="level3-content">{marginRightContent}</div>
             </div>
           </div>
-          <div>
+          <div className="footer">
             <Footer />
           </div>
         </div>

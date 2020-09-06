@@ -3,13 +3,48 @@ import { PlusCircle } from "../svg/svgIcons";
 import Nav from "../components/Nav";
 import { EventCard } from "../pattern/Cards";
 import { UpcomingEvent, GoPremiumBox } from "../pattern/Elements";
+
 import { TextButton } from "../pattern/forms/Button";
 import Footer from "../components/Footer";
 import Calendar from "react-calendar";
 import "../Calendar.css";
 import moment from "moment";
 const mark = ["8-29-2020", "8-15-2020", "8-03-2020"];
-class Events extends Component {
+
+const marginRightContent = (date, onChange) => {
+  return (
+    <>
+      <h2>Event Calendar</h2>
+
+      <div>
+        <Calendar
+          onChange={onChange}
+          value={date}
+          tileClassName="content"
+          tileClassName={({ date, view }) => {
+            if (
+              mark.find(
+                (x) =>
+                  moment(x).format("MM-DD-YYYY") ===
+                  moment(date).format("MM-DD-YYYY")
+              )
+            ) {
+              return "highlight";
+            }
+          }}
+
+          // date will return every date visible on calendar and view will view type (eg. month)
+          /*  if(){
+                      return 'highlight'; // your class name
+                     } */
+        />
+      </div>
+      <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
+    </>
+  );
+};
+
+class Scaffold extends Component {
   state = {
     signup: true,
   };
@@ -22,9 +57,7 @@ class Events extends Component {
       [e.target.name]: e.target.value,
     });
   };
-  onChange = (e) => {
-    console.log(e);
-  };
+
   render() {
     return (
       <div>
@@ -34,11 +67,14 @@ class Events extends Component {
         <div className="pageHolderInside">
           <div className="column-three mainPage">
             <div className="margin-left">
+              {/* /////// LEFT CONTENT \\\\\\\ */}
+
               <GoPremiumBox gap={25} />
               <div className="align-right">
                 <TextButton
                   label={"Create event"}
                   locked={true}
+                  gap={15}
                   icon={<PlusCircle size={15} />}
                 />
               </div>
@@ -59,8 +95,15 @@ class Events extends Component {
                 image="/images/all_cars4.jpeg"
                 gap={25}
               />
+
+              {/* /////// CONTENT TO MOVE FROM RIGHT TO LEFT \\\\\\\ */}
+              <div className="level2-content">
+                {marginRightContent(this.state.date, this.onChange)}
+              </div>
             </div>
             <div className="column-maincontent">
+              {/* /////// CENTER COLUMN \\\\\\\ */}
+
               <div>
                 <h2>Upcoming Events</h2>
 
@@ -108,37 +151,14 @@ class Events extends Component {
                 />
               </div>
             </div>
-
             <div className="margin-right">
-              <h2>Event Calendar</h2>
-
-              <div>
-                <Calendar
-                  onChange={this.onChange}
-                  value={this.state.date}
-                  tileClassName="content"
-                  tileClassName={({ date, view }) => {
-                    if (
-                      mark.find(
-                        (x) =>
-                          moment(x).format("MM-DD-YYYY") ===
-                          moment(date).format("MM-DD-YYYY")
-                      )
-                    ) {
-                      return "highlight";
-                    }
-                  }}
-
-                  // date will return every date visible on calendar and view will view type (eg. month)
-                  /*  if(){
-                      return 'highlight'; // your class name
-                     } */
-                />
+              {/* /////// RIGHT COLUMN \\\\\\\ */}
+              <div className="level3-content">
+                {marginRightContent(this.state.date, this.onChange)}
               </div>
-              <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
             </div>
           </div>
-          <div>
+          <div className="footer">
             <Footer />
           </div>
         </div>
@@ -147,4 +167,4 @@ class Events extends Component {
   }
 }
 
-export default Events;
+export default Scaffold;

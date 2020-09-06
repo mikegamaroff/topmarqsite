@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Input } from "../pattern/forms/Fields";
-import { Home, Bell, Events, Forum, Groups } from "../svg/svgIcons";
+import SideNav from "./SideNav";
+import { Home, Bell, Events, Forum, Groups, Divider } from "../svg/svgIcons";
 import { NavLink, withRouter } from "react-router-dom";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Footer extends Component {
+class Nav extends Component {
   state = {
     activeBtn: "button",
   };
@@ -38,12 +39,32 @@ class Footer extends Component {
     return (
       <div>
         <div className="navContainer">
-          <div className="column-three column-menu">
-            <div id="logo" className="vertical-center">
-              <div style={{ padding: "0px 0px 0px 7px" }}>
-                <img src="/images/topLogo.svg" />
+          <div className="sideNavDisplay">
+            <SideNav />
+          </div>
+          <div className="navDivider">
+            <div
+              style={{
+                position: "absolute",
+                display: "flex",
+                width: "100%",
+                height: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Divider color="#CCCCCC" size={"65%"} />
+            </div>
+          </div>
+          <div className="column-two column-menu">
+            <div id="logo" className="vertical-center logo-search">
+              <div className="navLogo">
+                <div style={{ padding: "0px 0px 0px 7px" }}>
+                  <img src="/images/topLogo.svg" />
+                </div>
               </div>
               <div
+                className="navSearch"
                 style={{
                   padding: "0px 20px 0px 10px",
                   width: "100%",
@@ -74,7 +95,8 @@ class Footer extends Component {
                 />
               </div>
             </div>
-            <div className="vertical-center navButtons">
+
+            <div className="vertical-center navButtons navButtonsTop">
               <NavLink to="/home" style={{ height: "100%" }}>
                 <div id="button">
                   <Home id="icon_home" size={26} />
@@ -102,10 +124,52 @@ class Footer extends Component {
                 </div>
               </NavLink>
             </div>
-            <div className="profileMenu vertical-center align-right">
-              <div style={{ padding: "0px 7px 0px 0px" }}>
-                <img src="/images/profPic.png" />
-              </div>
+            <div style={{ padding: "0px 7px 0px 0px" }}>
+              <img
+                src="/images/profPic.png"
+                style={{
+                  borderRadius: "100%",
+                  position: "absolute",
+                  right: "10px",
+                  top: "10px",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="navContainerBottom">
+          <div>
+            <div className="even-spacing navButtons navButtonsBottom">
+              <NavLink to="/home" style={{ height: "100%" }}>
+                <div id="button">
+                  <Home id="icon_home" size={26} />
+                  <span className="navButtonBase" id="floor_home" />
+                </div>
+              </NavLink>
+              <NavLink to="/" style={{ height: "100%" }}>
+                <div id="button">
+                  <Bell id="icon_notifications" size={26} />
+                  <span className="navButtonBase" id="floor_notifications" />
+                </div>
+              </NavLink>
+              <NavLink to="/events" style={{ height: "100%" }}>
+                <div id="button">
+                  <Events id="icon_events" size={26} />
+                  <span className="navButtonBase" id="floor_events" />
+                </div>
+              </NavLink>
+              <NavLink to="/" style={{ height: "100%" }}>
+                <div id="button">
+                  <Forum id="icon_forum" size={26} />
+                  <span className="navButtonBase" id="floor_forum" />
+                </div>
+              </NavLink>
+              <NavLink to="/groups" style={{ height: "100%" }}>
+                <div id="button">
+                  <Groups id="icon_groups" size={26} />{" "}
+                  <span className="navButtonBase" id="floor_groups" />
+                </div>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -114,4 +178,4 @@ class Footer extends Component {
   }
 }
 
-export default withRouter(Footer);
+export default withRouter(Nav);

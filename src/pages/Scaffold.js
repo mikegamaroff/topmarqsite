@@ -79,7 +79,7 @@ const groupData = [
   },
 ];
 
-class ClassDetail extends Component {
+class Scaffold extends Component {
   state = {
     signup: true,
   };
@@ -248,4 +248,4 @@ class ClassDetail extends Component {
   }
 }
 
-export default ClassDetail;
+export default Scaffold;

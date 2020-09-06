@@ -10,6 +10,26 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { text_truncate } from "../methods/tools";
 
+export const GrayCard = (props) => {
+  return (
+    <>
+      <div
+        className="graycard"
+        style={{
+          width: "100%",
+          padding: "15px",
+          fontSize: "12.5px",
+          lineHeight: "1.5",
+          fontStyle: "italic",
+        }}
+      >
+        {props.text}
+      </div>
+      <div style={{ height: props.gap }}></div>
+    </>
+  );
+};
+
 export const EventCard = (props) => {
   return (
     <div>
@@ -40,7 +60,29 @@ export const EventCard = (props) => {
             justifyContent: `flex-end`,
           }}
         >
-          <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+          <div
+            style={{
+              position: "absolute",
+              top: "10px",
+              right: "10px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {/*  {props.sponsored ? (
+              <span
+                style={{
+                  marginRight: "10px",
+                  fontStyle: "italic",
+                  fontSize: "12px",
+                  background: `rgba(0, 0, 0, 0.2)`,
+                  padding: "2px 6px 2px 6px",
+                  borderRadius: "5px",
+                }}
+              >
+                Sponsored
+              </span>
+            ) : null} */}
             <img src="images/chevron.svg" />
           </div>
           <h1 style={{ fontSize: "14px", margin: 0 }}>
@@ -274,18 +316,16 @@ export const LatestGroups = (props) => {
     <div>
       <div className="card" style={{ height: "auto", padding: 0 }}>
         <div
+          className="latestGroupsBox"
           style={{
             display: "flex",
             padding: "0px 15px 0px 15px",
             boxSizing: "border-box",
             webkitBoxSizing: "border-box",
             MozBoxSizing: "border-box",
-
             width: "100%",
-            height: "60px",
             background: `
     url("${props.image}") no-repeat center center`,
-
             backgroundSize: "cover",
             borderRadius: `13px 13px 0 0`,
             color: "white",

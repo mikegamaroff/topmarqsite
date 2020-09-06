@@ -4,19 +4,16 @@ import { UserInputField } from "./Elements";
 export const PopularThreads = (props) => {
   return (
     <>
-      <h2>Popular threads</h2>
       <div
+        className="mobile-3-column"
         style={{
-          display: "grid",
-          gridTemplateColumns: "auto auto auto",
-          gridGap: "20px",
           width: "100%",
         }}
       >
         {props.popularThreadList &&
           props.popularThreadList.map((val, i) => {
             return (
-              <div id={i}>
+              <div key={i} id={`popularThread${i}`}>
                 <PopularThread
                   description={val.description}
                   image={val.image}

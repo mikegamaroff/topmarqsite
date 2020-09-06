@@ -1,20 +1,11 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TextButton } from "../pattern/forms/Button";
 import { PlusCircle } from "../svg/svgIcons";
-import {
-  faMapMarkerAlt,
-  faExclamationCircle,
-} from "@fortawesome/free-solid-svg-icons";
 import Nav from "../components/Nav";
 import { LatestGroups, GroupsHorizontal } from "../pattern/Cards";
-import { EventClass, ThumbnailList, LargeImageHero } from "../pattern/Elements";
-import TopmarqMaps from "../pattern/TopmarqMaps";
+import { LargeImageHero, ThumbnailList } from "../pattern/Elements";
 
-import { Button } from "../pattern/forms/Button";
+import { TextButton } from "../pattern/forms/Button";
 import Footer from "../components/Footer";
-import "../Calendar.css";
-//import moment from "moment";
 
 const latestGroups = [
   // "unjoined" = user hasn't joined a group
@@ -76,9 +67,6 @@ class Groups extends Component {
       [e.target.name]: e.target.value,
     });
   };
-  onChange = (e) => {
-    console.log(e);
-  };
 
   render() {
     return (
@@ -89,10 +77,12 @@ class Groups extends Component {
         <div className="pageHolderInside">
           <div className="column-two mainPage">
             <div className="margin-left">
+              {/* /////// LEFT CONTENT \\\\\\\ */}
               <div className="align-right">
                 <TextButton
                   label={"Create event"}
                   locked={true}
+                  gap={15}
                   icon={<PlusCircle size={15} />}
                 />
               </div>
@@ -112,8 +102,15 @@ class Groups extends Component {
               </div>
               <h2>Your Groups</h2>
               <ThumbnailList data={groupData} myevents={true} />
+
+              {/* /////// CONTENT TO MOVE FROM RIGHT TO LEFT \\\\\\\ */}
+              <div className="level2-content">
+                {/*    {marginRightContent(this.state.date, this.onChange)} */}
+              </div>
             </div>
             <div className="column-maincontent-nopadding">
+              {/* /////// CENTER COLUMN \\\\\\\ */}
+
               <div style={{ marginBottom: "50px" }}>
                 <LargeImageHero
                   name="Topmarq Groups"
@@ -122,13 +119,7 @@ class Groups extends Component {
                   gap={25}
                 />
                 <h2>Latest Groups</h2>
-                <div
-                  style={{
-                    display: "grid",
-                    gridGap: "20px",
-                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
-                  }}
-                >
+                <div className="mobile-4-column">
                   {latestGroups.map((val, i) => {
                     return (
                       <LatestGroups
@@ -144,13 +135,7 @@ class Groups extends Component {
                 </div>
                 <h2>Groups in your area</h2>
                 <div className="card">
-                  <div
-                    style={{
-                      display: "grid",
-                      gridGap: "40px",
-                      gridTemplateColumns: "1fr 1fr",
-                    }}
-                  >
+                  <div className="mobile-2-column">
                     {latestGroups.map((val, i) => {
                       return (
                         <GroupsHorizontal
@@ -166,8 +151,14 @@ class Groups extends Component {
                 </div>
               </div>
             </div>
+            <div className="margin-right">
+              {/* /////// RIGHT COLUMN \\\\\\\ */}
+              <div className="level3-content">
+                {/*             {marginRightContent(this.state.date, this.onChange)} */}
+              </div>
+            </div>
           </div>
-          <div>
+          <div className="footer">
             <Footer />
           </div>
         </div>

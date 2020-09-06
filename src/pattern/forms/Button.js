@@ -53,7 +53,7 @@ export const TextButton = (props) => {
       style={{
         fontSize: "14px",
         fontWeight: 900,
-        marginBottom: "15px",
+        marginBottom: props.gap,
         display: "inline-block",
       }}
       className="TextButton"
