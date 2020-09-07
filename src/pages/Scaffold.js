@@ -108,6 +108,7 @@ class Scaffold extends Component {
                 groupName={"Clear Lake Cars & Coffee"}
                 eventName="August Clear Lake Cars and Coffee Meet"
                 image="/images/all_cars2.jpeg"
+                profilePic="images/profPic.png"
                 gap={18}
               />
               <h2>Other classes</h2>
@@ -134,6 +135,7 @@ class Scaffold extends Component {
                   <CollapsibleText
                     open={false}
                     gap={20}
+                    fullwidth
                     speedInSeconds={1}
                     label="General Discussion"
                     content={
@@ -192,6 +194,8 @@ class Scaffold extends Component {
                     attending={52}
                     image="/images/all_cars1.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                   <EventCard
                     name="Classic Car Show Virtual"
@@ -200,6 +204,8 @@ class Scaffold extends Component {
                     attending={52}
                     image="/images/all_cars2.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                   <EventCard
                     name="Classic Car Show Virtual"
@@ -208,6 +214,8 @@ class Scaffold extends Component {
                     attending={52}
                     image="/images/all_cars4.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                 </div>
                 <h2>Recent Posts</h2>

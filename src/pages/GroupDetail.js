@@ -302,6 +302,8 @@ class GroupDetail extends Component {
                     attending={52}
                     image="/images/all_cars1.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                   <EventCard
                     name="Classic Car Show Virtual"
@@ -310,6 +312,8 @@ class GroupDetail extends Component {
                     attending={52}
                     image="/images/all_cars2.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                   <EventCard
                     name="Classic Car Show Virtual"
@@ -318,6 +322,8 @@ class GroupDetail extends Component {
                     attending={52}
                     image="/images/all_cars4.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                 </div>
                 <h2>Recent Posts</h2>

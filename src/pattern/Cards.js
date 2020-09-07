@@ -10,13 +10,78 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { text_truncate } from "../methods/tools";
 
+export const PopularThread = (props) => {
+  return (
+    <div>
+      <div
+        className="card"
+        style={{
+          height: "200px",
+          width: props.fullwidth ? "100%" : props.width,
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            display: "flex",
+            padding: "0px 15px 0px 15px",
+            boxSizing: "border-box",
+            webkitBoxSizing: "border-box",
+            MozBoxSizing: "border-box",
+            top: 0,
+            width: "100%",
+            height: "100%",
+            background: `linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 60%,
+      rgba(0, 0, 0, 0.9) 100%
+    ),
+    url("${props.image}") no-repeat center center`,
+
+            backgroundSize: "cover",
+            borderRadius: `13px`,
+            color: "white",
+            flexDirection: "column",
+            justifyContent: `flex-end`,
+          }}
+        >
+          <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+            <img src="images/chevron.svg" />
+          </div>
+          <div
+            style={{ position: "absolute", top: "10px", left: "10px" }}
+            /*onClick={ link to user profile }*/
+          >
+            <img
+              style={{ borderRadius: "100%", border: "solid 2px #FFFFFF" }}
+              src={props.profileThumbnail}
+            />
+          </div>
+          <p style={{ fontSize: "12px", lineHeight: 1.5, opacity: 1 }}>
+            {text_truncate(props.description, 55)}
+          </p>
+        </div>
+      </div>
+
+      <div style={{ height: props.gap }}></div>
+      {props.line ? (
+        <>
+          <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
+          <div style={{ height: props.gap }}></div>
+        </>
+      ) : null}
+    </div>
+  );
+};
+
 export const GrayCard = (props) => {
   return (
     <>
       <div
         className="graycard"
         style={{
-          width: "100%",
+          width: props.fullwidth ? "100%" : props.width,
           padding: "15px",
           fontSize: "12.5px",
           lineHeight: "1.5",
@@ -32,8 +97,17 @@ export const GrayCard = (props) => {
 
 export const EventCard = (props) => {
   return (
-    <div>
-      <div className="card" style={{ height: "180px" }}>
+    <div
+      style={{
+        width: props.fullwidth ? "100%" : props.width,
+      }}
+    >
+      <div
+        className="card"
+        style={{
+          height: props.height ? props.height : "180px",
+        }}
+      >
         <div
           style={{
             position: "absolute",
@@ -89,10 +163,10 @@ export const EventCard = (props) => {
             <span style={{ marginRight: "8px" }}>
               <FontAwesomeIcon size="lg" color="#FFFFFF" icon={faCalendarAlt} />
             </span>
-            {text_truncate(props.name, 23)}
+            {text_truncate(props.name, props.nameCharLimit)}
           </h1>
           <p style={{ fontSize: "12px", lineHeight: 1.5, opacity: 0.8 }}>
-            {text_truncate(props.description, 55)}
+            {text_truncate(props.description, props.descCharLimit)}
           </p>
         </div>
         <div
@@ -155,7 +229,7 @@ export const EventTitleCard = (props) => {
         <div
           style={{
             display: "flex",
-            width: "100%",
+            width: props.fullwidth ? "100%" : props.width,
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -167,7 +241,7 @@ export const EventTitleCard = (props) => {
               height: "30px",
               border: "solid 2px #D2D2D2",
             }}
-            src={"images/profPic.png"}
+            src={props.profilePic}
           />
 
           <div style={{ width: "100%", fontSize: "14px", fontWeight: 900 }}>
@@ -175,7 +249,13 @@ export const EventTitleCard = (props) => {
           </div>
         </div>
       ) : null}
-      <div className="card" style={{ height: "150px" }}>
+      <div
+        className="card"
+        style={{
+          height: "150px",
+          width: props.fullwidth ? "100%" : props.width,
+        }}
+      >
         <div
           style={{
             position: "absolute",
@@ -206,7 +286,10 @@ export const EventTitleCard = (props) => {
             <span style={{ marginRight: "8px" }}>
               <FontAwesomeIcon size="lg" color="#FFFFFF" icon={faCalendarAlt} />
             </span>
-            {text_truncate(props.eventName, 23)}
+            {text_truncate(
+              props.eventName,
+              props.nameCharLimit ? props.nameCharLimit : 23
+            )}
           </h1>
         </div>
       </div>
@@ -223,7 +306,13 @@ export const EventTitleCard = (props) => {
 export const GroupShowcase = (props) => {
   return (
     <div>
-      <div className="card" style={{ height: "220px" }}>
+      <div
+        className="card"
+        style={{
+          height: "220px",
+          width: props.fullwidth ? "100%" : props.width,
+        }}
+      >
         <div
           style={{
             position: "absolute",
@@ -258,10 +347,10 @@ export const GroupShowcase = (props) => {
             <span style={{ marginRight: "8px" }}>
               <FontAwesomeIcon size="lg" color="#FFFFFF" icon={faUsers} />
             </span>
-            {text_truncate(props.name, 23)}
+            {text_truncate(props.name, props.nameCharLimit)}
           </h1>
           <p style={{ fontSize: "12px", lineHeight: 1.5, opacity: 0.8 }}>
-            {text_truncate(props.description, 67)}
+            {text_truncate(props.description, props.descCharLimit)}
           </p>
           <Button
             label="More groups"
@@ -292,7 +381,7 @@ export const GroupShowcase = (props) => {
             <span style={{ marginRight: "5px" }}>
               <FontAwesomeIcon size="s" color="#606670" icon={faUsers} />
             </span>
-            {props.attending} members
+            {props.members} members
           </h3>
         </div>
       </div>
@@ -314,7 +403,14 @@ export const LatestGroups = (props) => {
   }
   return (
     <div>
-      <div className="card" style={{ height: "auto", padding: 0 }}>
+      <div
+        className="card"
+        style={{
+          height: "auto",
+          padding: 0,
+          width: props.fullwidth ? "100%" : props.width,
+        }}
+      >
         <div
           className="latestGroupsBox"
           style={{
@@ -324,6 +420,7 @@ export const LatestGroups = (props) => {
             webkitBoxSizing: "border-box",
             MozBoxSizing: "border-box",
             width: "100%",
+            height: "100px",
             background: `
     url("${props.image}") no-repeat center center`,
             backgroundSize: "cover",
@@ -431,6 +528,7 @@ export const GroupsHorizontal = (props) => {
           display: "grid",
           gridGap: "10px",
           gridTemplateColumns: "50px auto 80px",
+          width: props.fullwidth ? "100%" : props.width,
         }}
       >
         <div
@@ -462,7 +560,10 @@ export const GroupsHorizontal = (props) => {
               margin: "0 16px 5px 0",
             }}
           >
-            {text_truncate(props.name, 18)}
+            {text_truncate(
+              props.name,
+              props.nameCharLimit ? props.nameCharLimit : 18
+            )}
           </h3>
 
           <div

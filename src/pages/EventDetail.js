@@ -173,11 +173,12 @@ class EventDetail extends Component {
             <div className="margin-left">
               <h2>Details</h2>
               <GrayCard
-                gap={25}
                 text="Topmarq's debut classic car show focused on your favorite
 automotive classics. With 3 classes we all know and love and a
 fourth trying something new, there’s something for any
 petrolhead."
+                gap={25}
+                fullwidth
               />
               <DetailsList
                 date="Aug 8 - Aug 15"
@@ -216,11 +217,13 @@ petrolhead."
                   open={false}
                   gap={20}
                   speedInSeconds={1}
+                  fullwidth
                   label="Event Details"
                   content={
                     <>
                       <GrayCard
                         gap={15}
+                        fullwidth
                         text="Topmarq's debut classic car show focused on your favorite automotive classics. With 3 classes we all know and love and a fourth trying something new, there’s something for any petrolhead."
                       />
                       <div className="card">
@@ -246,33 +249,39 @@ petrolhead."
 
                 <EventClass
                   name="Any and all cars are welcome"
-                  nameLimit={80}
+                  nameCharLimit={80}
                   description="This class is for all the cars that participate in this Sunday car meet."
-                  descriptionLimit={100}
+                  descCharLimit={100}
                   data={eventClassPosts}
                   gap={40}
-                  submitButton={this.sendSearch}
-                  handleChange={this.handleChange}
+                  submitLabel="View"
+                  subscribeLabel="Subscribe"
+                  submitButton={this.submitButton}
+                  subscribeButton={this.subscribeButton}
                   entries={15}
                   votes={21}
                   views={423}
                   onClick={() => alert("Class Detail Subscribe")}
+                  fullwidth
                 />
               </div>
               <div>
                 <EventClass
                   name="Any and all cars are welcome"
-                  nameLimit={80}
+                  nameCharLimit={80}
                   description="This class is for all the cars that participate in this Sunday car meet."
-                  descriptionLimit={100}
+                  descCharLimit={100}
                   data={eventClassPosts}
                   gap={40}
-                  submitButton={this.sendSearch}
-                  handleChange={this.handleChange}
+                  submitLabel="View"
+                  subscribeLabel="Subscribe"
+                  submitButton={this.submitButton}
+                  subscribeButton={this.subscribeButton}
                   entries={12}
                   votes={15}
                   views={523}
                   onClick={() => alert("Class Detail Subscribe")}
+                  fullwidth
                 />
               </div>
             </div>

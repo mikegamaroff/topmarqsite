@@ -17,6 +17,7 @@ const latestGroups = [
     events: 21,
     members: 12,
     status: "unjoined",
+    nameCharLimit: 18,
   },
   {
     name: "sdfsdf & Coffee",
@@ -24,6 +25,7 @@ const latestGroups = [
     events: 13,
     members: 22,
     status: "joined",
+    nameCharLimit: 18,
   },
   {
     name: "Clear Lake Cars",
@@ -31,6 +33,7 @@ const latestGroups = [
     events: 52,
     members: 63,
     status: "pending",
+    nameCharLimit: 18,
   },
   {
     name: "Clear Cars &sdf sd fsdfsd  Coffee",
@@ -38,6 +41,7 @@ const latestGroups = [
     events: 12,
     members: 74,
     status: "unjoined",
+    nameCharLimit: 18,
   },
 ];
 
@@ -128,6 +132,8 @@ class Groups extends Component {
                         members={val.members}
                         image={val.image}
                         status={val.status}
+                        nameCharLimit={23}
+                        fullwidth
                         gap={25}
                       />
                     );
@@ -144,6 +150,8 @@ class Groups extends Component {
                           members={val.members}
                           image={val.image}
                           status={val.status}
+                          fullwidth
+                          nameCharLimit={val.nameCharLimit}
                         />
                       );
                     })}

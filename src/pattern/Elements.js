@@ -30,7 +30,7 @@ export const UserInputField = (props) => {
       <div
         style={{
           display: "flex",
-          width: "100%",
+          width: props.fullwidth ? "100%" : props.width,
           justifyContent: "center",
           verticalAlign: "middle",
           alignItems: "center",
@@ -84,8 +84,8 @@ export const AddThread = (props) => {
           placeholder={props.placeholder}
           profileThumbnail={props.profileThumbnail}
           buttonType={props.buttonType}
-          icon={props.icon}
           submitImg={props.submitImg}
+          fullwidth
         />
       </div>
       <div style={{ height: props.gap }}></div>
@@ -96,7 +96,13 @@ export const AddThread = (props) => {
 export const GoPremiumBox = (props) => {
   return (
     <div>
-      <div className="graycard" style={{ width: "100%", padding: "10px" }}>
+      <div
+        className="graycard"
+        style={{
+          width: props.fullwidth ? "100%" : props.width,
+          padding: "10px",
+        }}
+      >
         <div
           style={{
             fontSize: "13px",
@@ -166,7 +172,7 @@ export const RibbonElement = (props) => {
     place = "Err";
   }
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <div
         style={{
           position: "absolute",
@@ -214,7 +220,13 @@ export const RibbonElement = (props) => {
 export const Post = (props) => {
   return (
     <div>
-      <div className="card" style={{ width: "100%", padding: "0px" }}>
+      <div
+        className="card"
+        style={{
+          width: props.fullwidth ? "100%" : props.width,
+          padding: "0px",
+        }}
+      >
         <div
           style={{
             position: "absolute",
@@ -235,7 +247,7 @@ export const Post = (props) => {
         >
           <RibbonElement
             award={props.award}
-            id={"postID" + props.i}
+            id={"trophy_" + Math.floor(Math.random() * 100000)}
             size={40}
           />
         </div>
@@ -270,7 +282,9 @@ export const Post = (props) => {
                   bronze={props.bronze}
                 />
               ) : null}
-              {props.clock ? <CountdownClock /> : null}
+              {props.clock ? (
+                <CountdownClock days={15} hrs={6} mins={42} secs={52} />
+              ) : null}
             </div>
           </div>
         </div>
@@ -341,8 +355,8 @@ export const Post = (props) => {
             placeholder={props.placeholder}
             profileThumbnail={props.profileThumbnail}
             buttonType={props.buttonType}
-            icon={props.icon}
             submitImg={props.submitImg}
+            fullwidth
           />
         </div>
       </div>
@@ -354,7 +368,13 @@ export const Post = (props) => {
 export const UpcomingEvent = (props) => {
   return (
     <div>
-      <div className="card" style={{ width: "100%", padding: "0px" }}>
+      <div
+        className="card"
+        style={{
+          width: props.fullwidth ? "100%" : props.width,
+          padding: "0px",
+        }}
+      >
         <div
           style={{
             position: "absolute",
@@ -363,17 +383,17 @@ export const UpcomingEvent = (props) => {
             zIndex: 3,
           }}
         >
-          <img src="images/optionsDots.svg" />
+          {/*   <img src="images/optionsDots.svg" /> */}
         </div>
         <div style={{ padding: "15px 15px 0 15px" }}>
           <h1 style={{ fontSize: "16px", margin: 0 }}>
             <span style={{ marginRight: "8px" }}>
               <FontAwesomeIcon size="s" color="#333333" icon={faCalendarAlt} />
             </span>
-            {text_truncate(props.name, props.nameLimit)}
+            {text_truncate(props.name, props.nameCharLimit)}
           </h1>
           <p style={{ fontSize: "12px", opacity: 0.8 }}>
-            {text_truncate(props.description, props.descriptionLimit)}
+            {text_truncate(props.description, props.descCharLimit)}
           </p>
         </div>
         <div
@@ -466,15 +486,14 @@ export const UpcomingEvent = (props) => {
           >
             <div style={{ marginRight: "30px" }}>{props.longDescription}</div>
             <Button
-              label="Details"
+              label={props.label}
               submitting={false}
               fullwidth={false}
               color="#FFFFFF"
               disabled={false}
               padding={"8px 20px 8px 20px"}
               borderRadius={8}
-              /* onClick={} */
-
+              onClick={props.submitButton}
               gradient={["#EBAE58", "#EBAE58"]}
               gap={0}
             />
@@ -524,7 +543,7 @@ export const UpcomingEvent = (props) => {
               }}
             >
               <span style={{ marginRight: "5px" }}>
-                <InPerson color="#606670" />
+                <InPerson color="#606670" size={25} />
               </span>
               <span>In person</span>
             </div>
@@ -557,7 +576,7 @@ export const UserTrophies = (props) => {
           <span>
             <Trophy
               award="gold"
-              id={"trophy1_" + Math.floor(Math.random() * 10)}
+              id={"trophy1_" + Math.floor(Math.random() * 100000)}
               size={15}
             />
           </span>
@@ -569,7 +588,7 @@ export const UserTrophies = (props) => {
           <span>
             <Trophy
               award="silver"
-              id={"trophy2_" + Math.floor(Math.random() * 10)}
+              id={"trophy2_" + Math.floor(Math.random() * 100000)}
               size={15}
             />
           </span>
@@ -581,7 +600,7 @@ export const UserTrophies = (props) => {
           <span>
             <Trophy
               award="bronze"
-              id={"trophy3_" + Math.floor(Math.random() * 10)}
+              id={"trophy3_" + Math.floor(Math.random() * 100000)}
               size={15}
             />
           </span>
@@ -628,7 +647,7 @@ export const EventClassPost = (props) => {
           >
             <RibbonElement
               // check
-              id={"ribbon" + props.id}
+              id={"ribbon_" + Math.floor(Math.random() * 100000)}
               award={
                 props.id === 0
                   ? "gold"
@@ -665,13 +684,19 @@ export const EventClassPost = (props) => {
 export const EventClass = (props) => {
   return (
     <div>
-      <div className="card" style={{ width: "100%", padding: "0px" }}>
+      <div
+        className="card"
+        style={{
+          width: props.fullwidth ? "100%" : props.width,
+          padding: "0px",
+        }}
+      >
         <div
           className="classSubscribeButton"
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
           <SelectButton
-            label={"Subscribe"}
+            label={props.subscribeLabel}
             submitting={false}
             fullwidth={false}
             color="#3E4347"
@@ -679,13 +704,13 @@ export const EventClass = (props) => {
             checked={true}
             padding={"8px 15px 8px 40px"}
             borderRadius={8}
-            onClick={props.onClick}
+            onClick={props.subscribeButton}
             gradient={["#ECEDF1", "#ECEDF5"]}
           />
         </div>
         <div style={{ padding: "15px 15px 15px 15px" }}>
           <h1 className="shortenedText" style={{ fontSize: "16px", margin: 0 }}>
-            {text_truncate(props.name, props.nameLimit)}
+            {text_truncate(props.name, props.nameCharLimit)}
           </h1>
           <p
             className="shortenedText"
@@ -695,9 +720,9 @@ export const EventClass = (props) => {
               marginBottom: "3px",
             }}
           >
-            {text_truncate(props.description, props.descriptionLimit)}
+            {text_truncate(props.description, props.descCharLimit)}
           </p>
-          <CountdownClock />
+          <CountdownClock days={15} hrs={6} mins={42} secs={52} />
         </div>
         <div
           className="classPostThree"
@@ -791,14 +816,14 @@ export const EventClass = (props) => {
             }}
           >
             <Button
-              label="View"
+              label={props.submitLabel}
               submitting={false}
               fullwidth={false}
               color="#FFFFFF"
               disabled={false}
               padding={"8px 30px 8px 30px"}
               borderRadius={8}
-              /* onClick={} */
+              onClick={props.submitButton}
               gradient={["#EBAE58", "#EBAE58"]}
               gap={0}
             />
@@ -839,16 +864,16 @@ export const CountdownClock = (props) => {
 
   return (
     <div>
-      <span style={style.number}>15</span>
+      <span style={style.number}>{props.days}</span>
       <span style={style.label}>days</span>
       <span style={style.colon}>:</span>
-      <span style={style.number}>09</span>
+      <span style={style.number}>{props.hrs}</span>
       <span style={style.label}>hrs</span>
       <span style={style.colon}>:</span>
-      <span style={style.number}>12</span>
+      <span style={style.number}>{props.mins}</span>
       <span style={style.label}>mins</span>
       <span style={style.colon}>:</span>
-      <span style={style.number}>56</span>
+      <span style={style.number}>{props.secs}</span>
       <span style={style.label}>secs</span>
     </div>
   );
@@ -875,7 +900,7 @@ export const Leaderboard = (props) => {
         >
           <Trophy
             award="gold"
-            id={"trophy1_" + Math.floor(Math.random() * 10)}
+            id={"trophy1_" + Math.floor(Math.random() * 100000)}
             size={20}
           />
         </div>
@@ -888,7 +913,7 @@ export const Leaderboard = (props) => {
         >
           <Trophy
             award="silver"
-            id={"trophy2_" + Math.floor(Math.random() * 10)}
+            id={"trophy2_" + Math.floor(Math.random() * 100000)}
             size={20}
           />
         </div>
@@ -901,7 +926,7 @@ export const Leaderboard = (props) => {
         >
           <Trophy
             award="bronze"
-            id={"trophy3_" + Math.floor(Math.random() * 10)}
+            id={"trophy3_" + Math.floor(Math.random() * 100000)}
             size={20}
           />
         </div>
@@ -1397,7 +1422,9 @@ export const MediumImageHero = (props) => {
             <span style={{ fontSize: "15px", lineHeight: 1.5, opacity: 0.8 }}>
               {text_truncate(props.description, 100)}
             </span>
-            {props.clock ? <CountdownClock /> : null}
+            {props.clock ? (
+              <CountdownClock days={15} hrs={6} mins={42} secs={52} />
+            ) : null}
           </div>
         </div>
       </div>
@@ -1459,6 +1486,7 @@ export const CollapsibleText = (props) => {
           fontSize: "16px",
           fontWeight: 600,
           display: "flex",
+          width: props.fullwidth ? "100%" : props.width,
           justifyContent: "space-between",
           alignItems: "center",
         }}

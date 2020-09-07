@@ -9,6 +9,7 @@ import Groups from "./pages/Groups";
 import GroupDetail from "./pages/GroupDetail";
 import EventDetail from "./pages/EventDetail";
 import ClassDetail from "./pages/ClassDetail";
+import Library from "./pages/Library";
 import Scaffold from "./pages/Scaffold";
 
 import Upgrade from "./pages/Upgrade";
@@ -26,6 +27,7 @@ export class App extends Component {
                 <Route exact path="/events" render={() => <Events />} />
                 <Route exact path="/groups" render={() => <Groups />} />
                 <Route exact path="/scaffold" render={() => <Scaffold />} />
+                <Route exact path="/library" render={() => <Library />} />
                 <Route
                   exact
                   path="/classdetail"

@@ -60,7 +60,13 @@ h2 {
   font-weight: 900;
   margin-bottom: 18px;
 }
-
+#pattern-name {
+  font-weight: 900;
+}
+#pattern-parameter {
+  color: blue;
+  font-style: italic;
+}
 .navButtons #button svg,
 .navButtonBase,
 .card {
@@ -750,10 +756,11 @@ h2 {
   .heroHolderUpgrade,
   .upgradeTable {
     display: grid;
+    grid-template-columns: 1fr;
     align-items: start;
     width: 100%;
     text-align: center;
-    grid-template-columns: 1fr;
+
     height: 100%;
   }
   .upgradeTable #separator {

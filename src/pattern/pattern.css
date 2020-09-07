@@ -129,3 +129,27 @@ button:hover {
 #buttonIcon {
   margin-right: 10px;
 }
+
+.pattern-list li {
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 2;
+}
+
+.pattern-list li:hover {
+  text-decoration: underline;
+  color: rgb(180, 129, 19);
+}
+
+.pattern-link {
+  text-decoration: underline;
+  color: rgb(180, 129, 19);
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 2;
+}
+
+.pattern-link:hover {
+  text-decoration: underline;
+  color: rgb(66, 46, 2);
+}

@@ -108,6 +108,7 @@ class ClassDetail extends Component {
                 groupName={"Clear Lake Cars & Coffee"}
                 eventName="August Clear Lake Cars and Coffee Meet"
                 image="/images/all_cars2.jpeg"
+                profilePic="images/profPic.png"
                 gap={18}
               />
               <h2>Other classes</h2>
@@ -135,6 +136,7 @@ class ClassDetail extends Component {
                     open={false}
                     gap={20}
                     speedInSeconds={1}
+                    fullwidth
                     label="General Discussion"
                     content={
                       <div className="card">
@@ -192,6 +194,8 @@ class ClassDetail extends Component {
                     attending={52}
                     image="/images/all_cars1.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                   <EventCard
                     name="Classic Car Show Virtual"
@@ -200,6 +204,8 @@ class ClassDetail extends Component {
                     attending={52}
                     image="/images/all_cars2.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                   <EventCard
                     name="Classic Car Show Virtual"
@@ -208,6 +214,8 @@ class ClassDetail extends Component {
                     attending={52}
                     image="/images/all_cars4.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                 </div>
                 <h2>Recent Posts</h2>

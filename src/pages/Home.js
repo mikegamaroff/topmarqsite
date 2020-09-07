@@ -94,9 +94,12 @@ const marginRightContent = (
       name="Mustangs"
       description="Connect with other Mustang lovers and join like-minded groups"
       date="Jul 16 - Aug 14"
-      attending={52}
+      members={52}
       image="/images/jeep.jpg"
       gap={25}
+      fullwidth
+      nameCharLimit={23}
+      descCharLimit={67}
     />
     <h2>Leaderboard</h2>
     <div style={{ borderBottom: "solid 1px #D8D8D8" }}></div>
@@ -137,6 +140,8 @@ class Home extends Component {
                 sponsored={true}
                 gap={25}
                 line={true}
+                nameCharLimit={23}
+                descCharLimit={50}
               />
               <div className="align-right">
                 <TextButton
@@ -154,6 +159,8 @@ class Home extends Component {
                 attending={52}
                 image="/images/all_cars2.jpeg"
                 gap={25}
+                nameCharLimit={23}
+                descCharLimit={50}
               />
               <EventCard
                 name="Classic Car Show Virtual"
@@ -162,6 +169,8 @@ class Home extends Component {
                 attending={52}
                 image="/images/all_cars4.jpeg"
                 gap={25}
+                nameCharLimit={23}
+                descCharLimit={50}
               />
 
               <div className="level2-content">{marginRightContent}</div>
@@ -184,6 +193,8 @@ class Home extends Component {
                     image="/images/all_cars2.jpeg"
                     gap={25}
                     sponsored={true}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                   <EventCard
                     name="Classic Car Show Virtual"
@@ -192,6 +203,8 @@ class Home extends Component {
                     attending={52}
                     image="/images/all_cars4.jpeg"
                     gap={25}
+                    nameCharLimit={23}
+                    descCharLimit={50}
                   />
                 </div>
               </div>

@@ -86,6 +86,8 @@ class Scaffold extends Component {
                 attending={52}
                 image="/images/all_cars2.jpeg"
                 gap={25}
+                nameCharLimit={23}
+                descCharLimit={50}
               />
               <EventCard
                 name="Classic Car Show Virtual"
@@ -94,6 +96,8 @@ class Scaffold extends Component {
                 attending={52}
                 image="/images/all_cars4.jpeg"
                 gap={25}
+                nameCharLimit={23}
+                descCharLimit={50}
               />
 
               {/* /////// CONTENT TO MOVE FROM RIGHT TO LEFT \\\\\\\ */}
@@ -109,18 +113,17 @@ class Scaffold extends Component {
 
                 <UpcomingEvent
                   name="August Clear Lake Cars and Coffee Meet"
-                  nameLimit={80}
+                  nameCharLimit={80}
                   description="Clear Lake Cars and Coffee"
-                  descriptionLimit={100}
+                  descCharLimit={100}
                   longDescription="The August edition of the monthly morning cars and coffee get
                 together. Car enthusiast from all over Houston are welcome to enjoy
                 some breakfast and great cars."
                   image={"images/1969mustang.jpg"}
                   userID={20}
                   gap={30}
-                  placeholder="Add Comment"
+                  label="Details"
                   submitButton={this.sendSearch}
-                  handleChange={this.handleChange}
                   inPerson={false}
                   virtual={true}
                   classes={3}
@@ -132,16 +135,15 @@ class Scaffold extends Component {
               <div>
                 <UpcomingEvent
                   name="Classic Car Show Virtual Premier"
-                  nameLimit={80}
+                  nameCharLimit={80}
                   description="Topmarq"
-                  descriptionLimit={100}
+                  descCharLimit={100}
                   longDescription="Topmarq's debut classic car show focused on all your favorite automotive classics. With three classes we all know and love and a fourth trying something new…"
                   image={"images/redWheels.jpg"}
                   userID={20}
                   gap={30}
-                  placeholder="Add Comment"
+                  label="Details"
                   submitButton={this.sendSearch}
-                  handleChange={this.handleChange}
                   inPerson={true}
                   virtual={false}
                   classes={11}

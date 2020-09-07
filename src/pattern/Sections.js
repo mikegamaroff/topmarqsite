@@ -1,5 +1,5 @@
 import React from "react";
-import { PopularThread } from "./cards/PopularThread";
+import { PopularThread } from "./Cards";
 import { UserInputField } from "./Elements";
 export const PopularThreads = (props) => {
   return (
@@ -19,6 +19,7 @@ export const PopularThreads = (props) => {
                   image={val.image}
                   profileThumbnail={val.profileThumbnail}
                   userID={val.userID}
+                  fullwidth
                   gap={25}
                 />
               </div>
@@ -88,6 +89,7 @@ export const DiscussionBox = (props) => {
         profileThumbnail="images/profPic.png"
         gap={10}
         placeholder="Leave comment"
+        fullwidth
       />
       <div
         className="car-background"
